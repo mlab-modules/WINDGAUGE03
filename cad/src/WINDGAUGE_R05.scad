@@ -11,8 +11,9 @@ module WINDGAUGE01A_R05(draft = true)
             // Fin
             union()
             {
-                translate([-R03_fin_length/2, -R03_fin_height/4, 0])
-                        cube([R03_fin_length, R03_fin_height/4, R03_fin_width]);
+                translate([-R03_fin_length/4 - R03_fin_height/4, -R03_fin_height/4, 0])
+                        cube([R03_fin_height/4 + 3/4 * R03_fin_length, R03_fin_height/4,
+                              R03_fin_width]);
                 translate([-R03_fin_length/4, -R03_fin_height/4, 0])
                         cylinder(h = R03_fin_width, d = R03_fin_height/2);
                 translate([-R03_fin_length/4, -R03_fin_height/2, 0])

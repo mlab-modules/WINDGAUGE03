@@ -4,6 +4,14 @@ use <./lib/curvedPipe.scad>
 use <./lib/copyFunctions.scad>
 use <WINDGAUGE_R06.scad>
 
+//@set_slicing_parameter(fill_density, 10%)
+//@set_modificator(WINDGAUGE_R03_mod_X)
+//@set_modificator(WINDGAUGE_R03_mod_Y)
+//@set_modificator(WINDGAUGE_R03_mod_Z)
+//@set_modificator_parameter(WINDGAUGE_R03_mod_X, fill_density, 20%)
+//@set_modificator_parameter(WINDGAUGE_R03_mod_Y, fill_density, 10%)
+//@set_modificator_parameter(WINDGAUGE_R03_mod_Z, fill_density, 100%)
+
 draft = true;
 $fn = draft ? 20 : 100;
 slip_ring_z = 2*R03_venturi_tube_height - R03_slip_ring_offset - 6*R03_wide_D;
@@ -458,4 +466,23 @@ difference()
     if (draft)
         translate([-R03_wide_D, -R03_venturi_tube_height/2, R03_venturi_tube_height/2 + 28])
             cube([R03_wide_D, R03_venturi_tube_height, R03_venturi_tube_height]);
+}
+
+module WINDGAUGE_R03_mod_X(draft = true)
+{
+  translate([0, -R03_venturi_tube_height/2, 0])
+      cube(R03_venturi_tube_height);
+}
+
+module WINDGAUGE_R03_mod_Y(draft = true)
+{
+  translate([-R03_venturi_tube_height/2, 0, 0])
+      cube(R03_venturi_tube_height);
+}
+
+module WINDGAUGE_R03_mod_Z(draft = true)
+{
+  translate([-R03_venturi_tube_height/2, -R03_venturi_tube_height/2,
+             R03_venturi_tube_height/2])
+      cube(R03_venturi_tube_height);
 }
