@@ -5,20 +5,23 @@ use <./lib/copyFunctions.scad>
 use <WINDGAUGE_R06.scad>
 
 //@set_slicing_parameter(fill_density, 10%)
-//@set_modificator(WINDGAUGE_R03_mod_X)
-//@set_modificator(WINDGAUGE_R03_mod_Y)
-//@set_modificator(WINDGAUGE_R03_mod_Z)
-//@set_modificator_parameter(WINDGAUGE_R03_mod_X, fill_density, 20%)
-//@set_modificator_parameter(WINDGAUGE_R03_mod_Y, fill_density, 10%)
-//@set_modificator_parameter(WINDGAUGE_R03_mod_Z, fill_density, 100%)
+//@set_modifier(WINDGAUGE_R03_mod_X)
+//@set_modifier(WINDGAUGE_R03_mod_Y)
+//@set_modifier(WINDGAUGE_R03_mod_Z)
+//@set_modifier_parameter(WINDGAUGE_R03_mod_X, mod_name, WINDGAUGE_R03_mod_X)
+//@set_modifier_parameter(WINDGAUGE_R03_mod_X, fill_density, 10%)
+//@set_modifier_parameter(WINDGAUGE_R03_mod_Y, mod_name, WINDGAUGE_R03_mod_Y)
+//@set_modifier_parameter(WINDGAUGE_R03_mod_Y, fill_density, 20%)
+//@set_modifier_parameter(WINDGAUGE_R03_mod_Z, mod_name, WINDGAUGE_R03_mod_Z)
+//@set_modifier_parameter(WINDGAUGE_R03_mod_Z, fill_density, 30%)
 
 draft = true;
 $fn = draft ? 20 : 100;
 slip_ring_z = 2*R03_venturi_tube_height - R03_slip_ring_offset - 6*R03_wide_D;
 // length of tube narrowing part
-intake_length = ((R03_wide_D - R03_narrow_D) / 2) / tan(15 / 2);
+intake_length = ((R03_wide_D - R03_narrow_D) / 2) / tan(19 / 2);
 // length of tube widening part
-exhaust_length = ((R03_wide_D - R03_narrow_D) / 2) / tan(10 / 2);
+exhaust_length = ((R03_wide_D - R03_narrow_D) / 2) / tan(12 / 2);
 // length of wide tube part on bottom and top
 wide_body_length = (R03_venturi_tube_height - intake_length - exhaust_length
                     - R03_narrow_D) / 2;
@@ -33,7 +36,7 @@ module pipes()
     pipe_elevation = PCB_z - slip_ring_z;
     d = (R03_wide_D + 2*R03_wall_thickness)/2 - R03_narrow_D/2 - R03_wall_thickness;
     cbl_x = 0;
-    curvedPipe([[-mid_body_horizontal/2, PCB_y + d + R03_wall_thickness/2, PCB_z + d ],
+    curvedPipe([[-mid_body_horizontal/2, PCB_y + d + R03_wall_thickness/2 - 1, PCB_z + d ],
                 [-mid_body_horizontal, -mid_body_horizontal    , PCB_z + d ],
                 [-mid_body_horizontal - 1, 0                   , PCB_z - 5 ],
                 [-mid_body_horizontal, mid_body_horizontal     , mid_body_vertical ],
@@ -470,19 +473,18 @@ difference()
 
 module WINDGAUGE_R03_mod_X(draft = true)
 {
-  translate([0, -R03_venturi_tube_height/2, 0])
-      cube(R03_venturi_tube_height);
+  translate([S01_prumer_vnitrni/2, 0, R03_venturi_tube_height/2])
+      cube([S01_prumer_vnitrni, S01_prumer_vnitrni * 1.6, S01_prumer_vnitrni], center = true);
 }
 
 module WINDGAUGE_R03_mod_Y(draft = true)
 {
-  translate([-R03_venturi_tube_height/2, 0, 0])
-      cube(R03_venturi_tube_height);
+  translate([0, 0, R03_venturi_tube_height - S01_prumer_vnitrni/2])
+      cube([S01_prumer_vnitrni * 1.6,S01_prumer_vnitrni * 1.6, S01_prumer_vnitrni], center = true);
 }
 
 module WINDGAUGE_R03_mod_Z(draft = true)
 {
-  translate([-R03_venturi_tube_height/2, -R03_venturi_tube_height/2,
-             R03_venturi_tube_height/2])
-      cube(R03_venturi_tube_height);
+  translate([0, -S01_prumer_vnitrni/2, slip_ring_z])
+      cube(S01_prumer_vnitrni, center = true);
 }
