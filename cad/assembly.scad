@@ -2,23 +2,23 @@ include <configuration.scad>
 
 parts_separation = 0;
 
- //D02 - Anemometer holder
- D02_z0 = 0;
- translate([0, 0, D02_z0])
-     rotate([0, 0, 0])
-         import("../amf/WINDGAUGE_D02.stl");
- 
- //S02 - Extender
- S02_z0 = D02_z0 + D02_total_height - D02_thread_height + parts_separation;
- translate([0, 0, S02_z0])
-     rotate([0, 0, 0])
-         import("../amf/WINDGAUGE_S02.stl");
- 
- //S01 - Bearings holder
- S01_z0 = S02_z0 + S01_vyska + parts_separation;
- translate([0, 0, S01_z0])
-     rotate([180, 0, 0])
-         import("../amf/WINDGAUGE_S01.stl");
+//D02 - Anemometer holder
+D02_z0 = 0;
+translate([0, 0, D02_z0])
+    rotate([0, 0, 0])
+        import("../amf/WINDGAUGE_D02.stl");
+
+//S02 - Extender
+S02_z0 = D02_z0 + D02_total_height - D02_thread_height + parts_separation;
+translate([0, 0, S02_z0])
+    rotate([0, 0, 0])
+        import("../amf/WINDGAUGE_S02.stl");
+
+//S01 - Bearings holder
+S01_z0 = S02_z0 + S01_vyska + parts_separation;
+translate([0, 0, S01_z0])
+    rotate([180, 0, 0])
+        import("../amf/WINDGAUGE_S01.stl");
 
 //R03 - Venturi tube
 R03_y0 = -2*R03_venturi_tube_height + R03_slip_ring_offset + 6*R03_wide_D;
