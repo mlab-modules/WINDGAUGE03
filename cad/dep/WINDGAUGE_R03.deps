@@ -1,4 +1,4 @@
-../amf/WINDGAUGE_R03.stl: \
+../amf/WINDGAUGE_R03.amf: \
 	configuration.scad \
 	src/lib/copyFunctions.scad \
 	src/lib/curvedPipe.scad \

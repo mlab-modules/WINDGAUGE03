@@ -1,4 +1,4 @@
-../amf/WINDGAUGE_S01.stl: \
+../amf/WINDGAUGE_S01.amf: \
 	configuration.scad \
 	src/lib/polyScrewThread_r1.scad \
 	src/WINDGAUGE_S01.scad \

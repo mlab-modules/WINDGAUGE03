@@ -1,18 +1,19 @@
+#!/bin/bash
 ######################################################################
 #
 #       Function: parse_params
-# 
+#
 #    Description: Parses params $*.
-# 
+#
 # Inputs/Outputs: $*
 #                -h, --help ........... HELP=true
 #                -o, --output <file> .. out=<file>
 #                -a, --amf <file> ..... amf=<file>
 #                -s, --scad <file> .... scad=<file>
 #                -v, --verbose ........ VERBOSE=true
-# 
+#
 #        Outputs: N/A
-# 
+#
 #  Return values: 0 - OK
 ######################################################################
 function parse_params {
@@ -206,7 +207,7 @@ function merge_modifiers {
     echo "use <${scad}>;" > tmp.scad
     echo "${mod}();" >> tmp.scad
     # Render temporary modifier file:
-    openSCAD -o tmp_mod.amf tmp.scad
+    openscad -o tmp_mod.amf tmp.scad
     # Get modifier ini file:
     ini_file=$(grep "set_slicing_config.*, *${mod})" ${scad} |\
                sed 's/.*(\([^,]*\).*/\1/')
