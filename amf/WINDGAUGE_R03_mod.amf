@@ -1,4 +1,3 @@
-<?xml version="1.0" encoding="UTF-8"?>
 <amf unit="millimeter">
  <metadata type="producer">OpenSCAD 2020.04.16.nightly (git dde0e47)</metadata>
  <object id="0">
@@ -176866,7 +176865,7 @@
     </triangle>
   <metadata type="slic3r.modifier">1</metadata>
   <metadata type="slic3r.mod_name">WINDGAUGE_R03_mod_X</metadata>
-  <metadata type="slic3r.fill_density">10%</metadata>
+  <metadata type="slic3r.fill_density">32%</metadata>
   </volume>
   <volume>
     <triangle>
@@ -176931,7 +176930,7 @@
     </triangle>
   <metadata type="slic3r.modifier">1</metadata>
   <metadata type="slic3r.mod_name">WINDGAUGE_R03_mod_Y</metadata>
-  <metadata type="slic3r.fill_density">20%</metadata>
+  <metadata type="slic3r.fill_density">87%</metadata>
   </volume>
   <volume>
     <triangle>
@@ -176996,7 +176995,7 @@
     </triangle>
   <metadata type="slic3r.modifier">1</metadata>
   <metadata type="slic3r.mod_name">WINDGAUGE_R03_mod_Z</metadata>
-  <metadata type="slic3r.fill_density">30%</metadata>
+  <metadata type="slic3r.fill_density">26%</metadata>
   </volume>
   </mesh>
  </object>
