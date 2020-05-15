@@ -330,9 +330,9 @@ M107
 G90 ; use absolute coordinates
 M83 ; extruder relative mode
 M104 S170 ; set extruder temp for bed leveling
-M140 S60 ; set bed temp
+M140 S50 ; set bed temp
 M109 R170 ; wait for bed leveling temp
-M190 S60 ; wait for bed temp
+M190 S50 ; wait for bed temp
 G28 ; home all without mesh bed level
 G29 ; mesh bed leveling
 M104 S215 ; set extruder temp
