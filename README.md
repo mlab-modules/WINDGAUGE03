@@ -21,6 +21,18 @@ Venturi tube based anemometer
 
 
 <!--- Description --->
+
+### Main parameters
+  
+  * Absolute azimuth accuracy 1°
+  * Wind speed measurement range 0-120 km/h
+  * Maximum mechanically safe wind speed 150 km/h
+  * Communication interfaces: 
+    * USB
+    * I²C
+  * Operational temperature range -20/+45 °C
+  * Maximum hail diameter 0.5 cm 
+
 <!--- EDescription --->
 <!--- Content --->
 <!--- EContent --->
