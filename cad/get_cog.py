@@ -140,7 +140,7 @@ cgy = np.sum(np.multiply(yc, mc))/np.sum(mc)
 cgz = np.sum(np.multiply(zc, mc))/np.sum(mc)
 
 print("Assembly COG is:", round(cgx, 2), round(cgy, 2), round(cgz, 2))
-print("Desired  COG is:", 0, 0, 198)
+print("Desired  COG is:", 0, 0, 100)
 print("translate([", cgx,"," , cgy, ",", cgz, "])")
 
 subprocess.run('cp ../amf/WINDGAUGE_R03_mod.amf result.amf', shell=True)

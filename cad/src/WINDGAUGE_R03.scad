@@ -449,12 +449,6 @@ module WINDGAUGE03A_R03(draft = true)
                 cylinder(h = M3_nut_height,
                          d = M3_nut_diameter, $fn = 6);
             }
-
-        // Balance adjustments shelf
-        /*translate([-R03_balance_shelf_width/2, R03_wide_D/2 + R03_wall_thickness,
-                   slip_ring_z + S01_prumer_vnitrni/2 + 4*S01_sila_materialu])
-            cube([R03_balance_shelf_width, R03_balance_shelf_height,
-                  R03_venturi_tube_height]);*/
     }
 }
 
@@ -473,18 +467,22 @@ difference()
 
 module WINDGAUGE_R03_mod_X(draft = true)
 {
-  translate([S01_prumer_vnitrni/2, 0, R03_venturi_tube_height/2])
-      cube([S01_prumer_vnitrni, S01_prumer_vnitrni * 1.6, S01_prumer_vnitrni], center = true);
+  translate([S01_prumer_vnitrni/2, -(S01_prumer_vnitrni * 1.6)/2 + R03_wide_D/2 + 5, slip_ring_z + S01_prumer_vnitrni/4])
+      cube([S01_prumer_vnitrni, S01_prumer_vnitrni * 1.6, S01_prumer_vnitrni/2], center = true);
 }
 
 module WINDGAUGE_R03_mod_Y(draft = true)
 {
-  translate([0, 0, R03_venturi_tube_height - S01_prumer_vnitrni/2])
-      cube([S01_prumer_vnitrni * 1.6,S01_prumer_vnitrni * 1.6, S01_prumer_vnitrni], center = true);
+  translate([0, 0, slip_ring_z + S01_prumer_vnitrni/4 + S01_prumer_vnitrni/2 + S01_prumer_vnitrni/4])
+      cube([S01_prumer_vnitrni  * 1.6, S01_prumer_vnitrni * 1.6, S01_prumer_vnitrni], center = true);
 }
 
 module WINDGAUGE_R03_mod_Z(draft = true)
 {
-  translate([0, -S01_prumer_vnitrni/2, slip_ring_z])
-      cube(S01_prumer_vnitrni, center = true);
+  translate([0, S01_prumer_vnitrni/2 + R03_wide_D/2 + 5, slip_ring_z + S01_prumer_vnitrni/4])
+      cube([S01_prumer_vnitrni*2, S01_prumer_vnitrni, S01_prumer_vnitrni/2], center = true);
 }
+
+#WINDGAUGE_R03_mod_X();
+#WINDGAUGE_R03_mod_Y();
+#WINDGAUGE_R03_mod_Z();
