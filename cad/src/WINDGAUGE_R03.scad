@@ -9,11 +9,11 @@ use <WINDGAUGE_R06.scad>
 //@set_modifier(WINDGAUGE_R03_mod_Y)
 //@set_modifier(WINDGAUGE_R03_mod_Z)
 //@set_modifier_parameter(WINDGAUGE_R03_mod_X, mod_name, WINDGAUGE_R03_mod_X)
-//@set_modifier_parameter(WINDGAUGE_R03_mod_X, fill_density, 32%)
+//@set_modifier_parameter(WINDGAUGE_R03_mod_X, fill_density, 49%)
 //@set_modifier_parameter(WINDGAUGE_R03_mod_Y, mod_name, WINDGAUGE_R03_mod_Y)
-//@set_modifier_parameter(WINDGAUGE_R03_mod_Y, fill_density, 87%)
+//@set_modifier_parameter(WINDGAUGE_R03_mod_Y, fill_density, 88%)
 //@set_modifier_parameter(WINDGAUGE_R03_mod_Z, mod_name, WINDGAUGE_R03_mod_Z)
-//@set_modifier_parameter(WINDGAUGE_R03_mod_Z, fill_density, 26%)
+//@set_modifier_parameter(WINDGAUGE_R03_mod_Z, fill_density, 100%)
 
 draft = true;
 $fn = draft ? 20 : 100;

@@ -58870,123 +58870,123 @@
     </coordinates></vertex>
     <vertex><coordinates>
      <x>0</x>
-     <y>-40</y>
-     <z>50</z>
+     <y>23</y>
+     <z>109</z>
     </coordinates></vertex>
     <vertex><coordinates>
      <x>50</x>
-     <y>-40</y>
-     <z>50</z>
-    </coordinates></vertex>
-    <vertex><coordinates>
-     <x>50</x>
-     <y>-40</y>
-     <z>100</z>
+     <y>23</y>
+     <z>109</z>
     </coordinates></vertex>
     <vertex><coordinates>
      <x>0</x>
-     <y>-40</y>
-     <z>100</z>
+     <y>23</y>
+     <z>84</z>
     </coordinates></vertex>
     <vertex><coordinates>
      <x>50</x>
-     <y>40</y>
-     <z>100</z>
+     <y>23</y>
+     <z>84</z>
     </coordinates></vertex>
     <vertex><coordinates>
      <x>0</x>
-     <y>40</y>
-     <z>100</z>
+     <y>-57</y>
+     <z>109</z>
     </coordinates></vertex>
     <vertex><coordinates>
      <x>50</x>
-     <y>40</y>
-     <z>50</z>
+     <y>-57</y>
+     <z>109</z>
     </coordinates></vertex>
     <vertex><coordinates>
      <x>0</x>
-     <y>40</y>
-     <z>50</z>
+     <y>-57</y>
+     <z>84</z>
     </coordinates></vertex>
     <vertex><coordinates>
-     <x>-40</x>
-     <y>-40</y>
-     <z>100</z>
-    </coordinates></vertex>
-    <vertex><coordinates>
-     <x>40</x>
-     <y>-40</y>
-     <z>100</z>
-    </coordinates></vertex>
-    <vertex><coordinates>
-     <x>40</x>
-     <y>-40</y>
-     <z>150</z>
-    </coordinates></vertex>
-    <vertex><coordinates>
-     <x>-40</x>
-     <y>-40</y>
-     <z>150</z>
-    </coordinates></vertex>
-    <vertex><coordinates>
-     <x>40</x>
-     <y>40</y>
-     <z>150</z>
+     <x>50</x>
+     <y>-57</y>
+     <z>84</z>
     </coordinates></vertex>
     <vertex><coordinates>
      <x>-40</x>
      <y>40</y>
-     <z>150</z>
+     <z>159</z>
     </coordinates></vertex>
     <vertex><coordinates>
      <x>40</x>
      <y>40</y>
-     <z>100</z>
+     <z>159</z>
     </coordinates></vertex>
     <vertex><coordinates>
      <x>-40</x>
      <y>40</y>
-     <z>100</z>
-    </coordinates></vertex>
-    <vertex><coordinates>
-     <x>-25</x>
-     <y>-50</y>
-     <z>59</z>
-    </coordinates></vertex>
-    <vertex><coordinates>
-     <x>25</x>
-     <y>-50</y>
-     <z>59</z>
-    </coordinates></vertex>
-    <vertex><coordinates>
-     <x>25</x>
-     <y>-50</y>
      <z>109</z>
     </coordinates></vertex>
     <vertex><coordinates>
-     <x>-25</x>
-     <y>-50</y>
+     <x>40</x>
+     <y>40</y>
      <z>109</z>
     </coordinates></vertex>
     <vertex><coordinates>
-     <x>25</x>
-     <y>0</y>
+     <x>-40</x>
+     <y>-40</y>
+     <z>159</z>
+    </coordinates></vertex>
+    <vertex><coordinates>
+     <x>40</x>
+     <y>-40</y>
+     <z>159</z>
+    </coordinates></vertex>
+    <vertex><coordinates>
+     <x>-40</x>
+     <y>-40</y>
      <z>109</z>
     </coordinates></vertex>
     <vertex><coordinates>
-     <x>-25</x>
-     <y>0</y>
+     <x>40</x>
+     <y>-40</y>
      <z>109</z>
     </coordinates></vertex>
     <vertex><coordinates>
-     <x>25</x>
-     <y>0</y>
-     <z>59</z>
+     <x>-50</x>
+     <y>73</y>
+     <z>109</z>
     </coordinates></vertex>
     <vertex><coordinates>
-     <x>-25</x>
-     <y>0</y>
-     <z>59</z>
+     <x>50</x>
+     <y>73</y>
+     <z>109</z>
+    </coordinates></vertex>
+    <vertex><coordinates>
+     <x>-50</x>
+     <y>73</y>
+     <z>84</z>
+    </coordinates></vertex>
+    <vertex><coordinates>
+     <x>50</x>
+     <y>73</y>
+     <z>84</z>
+    </coordinates></vertex>
+    <vertex><coordinates>
+     <x>-50</x>
+     <y>23</y>
+     <z>109</z>
+    </coordinates></vertex>
+    <vertex><coordinates>
+     <x>50</x>
+     <y>23</y>
+     <z>109</z>
+    </coordinates></vertex>
+    <vertex><coordinates>
+     <x>-50</x>
+     <y>23</y>
+     <z>84</z>
+    </coordinates></vertex>
+    <vertex><coordinates>
+     <x>50</x>
+     <y>23</y>
+     <z>84</z>
     </coordinates></vertex>
   </vertices>
   <volume>
@@ -176809,128 +176809,128 @@
      <v3>11775</v3>
     </triangle>
     <triangle>
-     <v1>11776</v1>
+     <v1>11775</v1>
+     <v2>11774</v2>
+     <v3>11776</v3>
+    </triangle>
+    <triangle>
+     <v1>11777</v1>
+     <v2>11778</v2>
+     <v3>11774</v3>
+    </triangle>
+    <triangle>
+     <v1>11773</v1>
+     <v2>11777</v2>
+     <v3>11774</v3>
+    </triangle>
+    <triangle>
+     <v1>11777</v1>
+     <v2>11773</v2>
+     <v3>11779</v3>
+    </triangle>
+    <triangle>
+     <v1>11779</v1>
      <v2>11773</v2>
      <v3>11775</v3>
     </triangle>
     <triangle>
-     <v1>11776</v1>
-     <v2>11775</v2>
-     <v3>11777</v3>
-    </triangle>
-    <triangle>
-     <v1>11778</v1>
-     <v2>11776</v2>
-     <v3>11777</v3>
-    </triangle>
-    <triangle>
-     <v1>11774</v1>
-     <v2>11779</v2>
-     <v3>11777</v3>
-    </triangle>
-    <triangle>
      <v1>11775</v1>
-     <v2>11774</v2>
-     <v3>11777</v3>
+     <v2>11776</v2>
+     <v3>11779</v3>
+    </triangle>
+    <triangle>
+     <v1>11779</v1>
+     <v2>11776</v2>
+     <v3>11780</v3>
     </triangle>
     <triangle>
      <v1>11780</v1>
-     <v2>11779</v2>
-     <v3>11773</v3>
-    </triangle>
-    <triangle>
-     <v1>11773</v1>
-     <v2>11779</v2>
+     <v2>11776</v2>
      <v3>11774</v3>
     </triangle>
     <triangle>
-     <v1>11776</v1>
-     <v2>11778</v2>
-     <v3>11773</v3>
-    </triangle>
-    <triangle>
-     <v1>11773</v1>
-     <v2>11778</v2>
-     <v3>11780</v3>
-    </triangle>
-    <triangle>
      <v1>11778</v1>
-     <v2>11777</v2>
-     <v3>11780</v3>
+     <v2>11780</v2>
+     <v3>11774</v3>
     </triangle>
     <triangle>
-     <v1>11780</v1>
-     <v2>11777</v2>
-     <v3>11779</v3>
+     <v1>11779</v1>
+     <v2>11780</v2>
+     <v3>11778</v3>
+    </triangle>
+    <triangle>
+     <v1>11777</v1>
+     <v2>11779</v2>
+     <v3>11778</v3>
     </triangle>
   <metadata type="slic3r.modifier">1</metadata>
   <metadata type="slic3r.mod_name">WINDGAUGE_R03_mod_X</metadata>
-  <metadata type="slic3r.fill_density">32%</metadata>
+  <metadata type="slic3r.fill_density">49%</metadata>
   </volume>
   <volume>
     <triangle>
      <v1>11781</v1>
      <v2>11782</v2>
      <v3>11783</v3>
-    </triangle>
-    <triangle>
-     <v1>11784</v1>
-     <v2>11781</v2>
-     <v3>11783</v3>
-    </triangle>
-    <triangle>
-     <v1>11784</v1>
-     <v2>11783</v2>
-     <v3>11785</v3>
-    </triangle>
-    <triangle>
-     <v1>11786</v1>
-     <v2>11784</v2>
-     <v3>11785</v3>
-    </triangle>
-    <triangle>
-     <v1>11782</v1>
-     <v2>11787</v2>
-     <v3>11785</v3>
     </triangle>
     <triangle>
      <v1>11783</v1>
      <v2>11782</v2>
-     <v3>11785</v3>
+     <v3>11784</v3>
     </triangle>
     <triangle>
-     <v1>11788</v1>
-     <v2>11787</v2>
-     <v3>11781</v3>
-    </triangle>
-    <triangle>
-     <v1>11781</v1>
-     <v2>11787</v2>
+     <v1>11785</v1>
+     <v2>11786</v2>
      <v3>11782</v3>
     </triangle>
     <triangle>
-     <v1>11784</v1>
-     <v2>11786</v2>
-     <v3>11781</v3>
-    </triangle>
-    <triangle>
      <v1>11781</v1>
-     <v2>11786</v2>
-     <v3>11788</v3>
+     <v2>11785</v2>
+     <v3>11782</v3>
     </triangle>
     <triangle>
-     <v1>11786</v1>
-     <v2>11785</v2>
+     <v1>11785</v1>
+     <v2>11781</v2>
+     <v3>11787</v3>
+    </triangle>
+    <triangle>
+     <v1>11787</v1>
+     <v2>11781</v2>
+     <v3>11783</v3>
+    </triangle>
+    <triangle>
+     <v1>11783</v1>
+     <v2>11784</v2>
+     <v3>11787</v3>
+    </triangle>
+    <triangle>
+     <v1>11787</v1>
+     <v2>11784</v2>
      <v3>11788</v3>
     </triangle>
     <triangle>
      <v1>11788</v1>
-     <v2>11785</v2>
-     <v3>11787</v3>
+     <v2>11784</v2>
+     <v3>11782</v3>
+    </triangle>
+    <triangle>
+     <v1>11786</v1>
+     <v2>11788</v2>
+     <v3>11782</v3>
+    </triangle>
+    <triangle>
+     <v1>11787</v1>
+     <v2>11788</v2>
+     <v3>11786</v3>
+    </triangle>
+    <triangle>
+     <v1>11785</v1>
+     <v2>11787</v2>
+     <v3>11786</v3>
     </triangle>
   <metadata type="slic3r.modifier">1</metadata>
   <metadata type="slic3r.mod_name">WINDGAUGE_R03_mod_Y</metadata>
-  <metadata type="slic3r.fill_density">87%</metadata>
+  <metadata type="slic3r.fill_density">88%</metadata>
   </volume>
   <volume>
     <triangle>
@@ -176939,63 +176939,63 @@
      <v3>11791</v3>
     </triangle>
     <triangle>
-     <v1>11792</v1>
+     <v1>11791</v1>
+     <v2>11790</v2>
+     <v3>11792</v3>
+    </triangle>
+    <triangle>
+     <v1>11793</v1>
+     <v2>11794</v2>
+     <v3>11790</v3>
+    </triangle>
+    <triangle>
+     <v1>11789</v1>
+     <v2>11793</v2>
+     <v3>11790</v3>
+    </triangle>
+    <triangle>
+     <v1>11793</v1>
+     <v2>11789</v2>
+     <v3>11795</v3>
+    </triangle>
+    <triangle>
+     <v1>11795</v1>
      <v2>11789</v2>
      <v3>11791</v3>
     </triangle>
     <triangle>
-     <v1>11792</v1>
-     <v2>11791</v2>
-     <v3>11793</v3>
-    </triangle>
-    <triangle>
-     <v1>11794</v1>
-     <v2>11792</v2>
-     <v3>11793</v3>
-    </triangle>
-    <triangle>
-     <v1>11790</v1>
-     <v2>11795</v2>
-     <v3>11793</v3>
-    </triangle>
-    <triangle>
      <v1>11791</v1>
-     <v2>11790</v2>
-     <v3>11793</v3>
+     <v2>11792</v2>
+     <v3>11795</v3>
+    </triangle>
+    <triangle>
+     <v1>11795</v1>
+     <v2>11792</v2>
+     <v3>11796</v3>
     </triangle>
     <triangle>
      <v1>11796</v1>
-     <v2>11795</v2>
-     <v3>11789</v3>
-    </triangle>
-    <triangle>
-     <v1>11789</v1>
-     <v2>11795</v2>
+     <v2>11792</v2>
      <v3>11790</v3>
     </triangle>
     <triangle>
-     <v1>11792</v1>
-     <v2>11794</v2>
-     <v3>11789</v3>
-    </triangle>
-    <triangle>
-     <v1>11789</v1>
-     <v2>11794</v2>
-     <v3>11796</v3>
-    </triangle>
-    <triangle>
      <v1>11794</v1>
-     <v2>11793</v2>
-     <v3>11796</v3>
+     <v2>11796</v2>
+     <v3>11790</v3>
     </triangle>
     <triangle>
-     <v1>11796</v1>
-     <v2>11793</v2>
-     <v3>11795</v3>
+     <v1>11795</v1>
+     <v2>11796</v2>
+     <v3>11794</v3>
+    </triangle>
+    <triangle>
+     <v1>11793</v1>
+     <v2>11795</v2>
+     <v3>11794</v3>
     </triangle>
   <metadata type="slic3r.modifier">1</metadata>
   <metadata type="slic3r.mod_name">WINDGAUGE_R03_mod_Z</metadata>
-  <metadata type="slic3r.fill_density">26%</metadata>
+  <metadata type="slic3r.fill_density">100%</metadata>
   </volume>
   </mesh>
  </object>
