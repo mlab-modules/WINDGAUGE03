@@ -483,6 +483,6 @@ module WINDGAUGE_R03_mod_Z(draft = true)
       cube([S01_prumer_vnitrni*2, S01_prumer_vnitrni, S01_prumer_vnitrni/2], center = true);
 }
 
-#WINDGAUGE_R03_mod_X();
-#WINDGAUGE_R03_mod_Y();
-#WINDGAUGE_R03_mod_Z();
+%WINDGAUGE_R03_mod_X();
+%WINDGAUGE_R03_mod_Y();
+%WINDGAUGE_R03_mod_Z();
