@@ -341,10 +341,11 @@ module WINDGAUGE03A_R03(draft = true)
             cylinder (h = R03_venturi_tube_height,
                       d = R03_wide_D + 2*R03_wall_thickness);
 
+            hull_bottom = slip_ring_z - S01_prumer_vnitrni/2 - 5 - R01_vyska_prekryti_statoru - R04_zavit_vyska;
+
             hull()
             {
-                hull_bottom = slip_ring_z - S01_prumer_vnitrni/2 - 5
-                              - R01_vyska_prekryti_statoru - R04_zavit_vyska;
+
                 translate([0, 0, hull_bottom])
                     cylinder (h = R03_venturi_tube_height - hull_bottom,
                               d = R03_wide_D + 2*R03_wall_thickness);
@@ -479,8 +480,9 @@ module WINDGAUGE_R03_mod_Y(draft = true)
 
 module WINDGAUGE_R03_mod_Z(draft = true)
 {
-  translate([0, S01_prumer_vnitrni/2 + R03_wide_D/2 + 5, slip_ring_z + S01_prumer_vnitrni/4])
-      cube([S01_prumer_vnitrni*2, S01_prumer_vnitrni, S01_prumer_vnitrni/2], center = true);
+  hull_bottom = slip_ring_z - S01_prumer_vnitrni/2 - 5 - R01_vyska_prekryti_statoru - R04_zavit_vyska;
+  translate([0, S01_prumer_vnitrni/2 + R03_wide_D/2 + 5, slip_ring_z])
+      cube([S01_prumer_vnitrni*2, S01_prumer_vnitrni , R03_venturi_tube_height - hull_bottom], center = true);
 }
 
 //%WINDGAUGE_R03_mod_X();
