@@ -155,7 +155,7 @@ module drop_shape(drop_length, draft)
                               d = M3_nut_diameter);
         // PCB casing - Ceiling is moved 1.5xR03_global_clearance upwards due to
         // problems with bridge printing.
-        cable_spacing = 3;
+        cable_spacing = 2.5;
         intersection(){
             union()
             {
@@ -483,6 +483,6 @@ module WINDGAUGE_R03_mod_Z(draft = true)
       cube([S01_prumer_vnitrni*2, S01_prumer_vnitrni, S01_prumer_vnitrni/2], center = true);
 }
 
-%WINDGAUGE_R03_mod_X();
-%WINDGAUGE_R03_mod_Y();
-%WINDGAUGE_R03_mod_Z();
+//%WINDGAUGE_R03_mod_X();
+//%WINDGAUGE_R03_mod_Y();
+//%WINDGAUGE_R03_mod_Z();

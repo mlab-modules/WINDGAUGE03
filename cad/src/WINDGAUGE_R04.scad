@@ -3,6 +3,7 @@ include <./lib/polyScrewThread_r1.scad>
 use <WINDGAUGE_R03.scad>
 
 draft = true;
+$fn = draft ? 20 : 100;
 
 // Drop shape - TOP.
 module WINDGAUGE01A_R04(draft = true)
