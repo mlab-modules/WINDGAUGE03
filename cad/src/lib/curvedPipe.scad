@@ -68,10 +68,10 @@ module pipeCurve(points,point,radii, od,id,isLastSegment=false) {
 	rStart = start + (l1-inset)*dir1u;
 	
 	// start
-	translate(start) orientate(dir1) translate([0,0,preInset]) tube(h=l1-preInset-inset,or=od/2, ir=id/2, center=false);
+	translate(start) orientate(dir1) translate([0,0,preInset - 0.5]) tube(h=l1-preInset-inset + 1,or=od/2, ir=id/2, center=false);
 
 	//end
-	translate(mid) orientate(dir2) translate([0,0,inset]) tube(h=l2-postInset-inset,or=od/2, ir=id/2, center=false);
+	translate(mid) orientate(dir2) translate([0,0,inset - 0.5]) tube(h=l2-postInset-inset + 1,or=od/2, ir=id/2, center=false);
 	
 	// curved section
 	// nb: torus slice always starts at x axis and goes counter clockwise around z
