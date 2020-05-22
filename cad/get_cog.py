@@ -4,6 +4,7 @@ import math
 import numpy as np
 import xml.etree.ElementTree as ET
 import subprocess
+import sys
 
 # I used this function to recalculate YAGV results.
 # Used here to make script work without YAGV.
@@ -111,9 +112,9 @@ mc = [] # m of components
 #TODO read components from assembly?
 # Columns are path to gcode | rotations | movements | mass in grams
 components = [
-    ["../amf/gcode/WINDGAUGE_R03_mod.gcode", [270,  0,   0], [    0,    -84,   198], 0],
-    ["../amf/gcode/WINDGAUGE_R04.gcode"    , [  0,  0,   0], [    0,     48,   219], 0],
-    ["../amf/gcode/WINDGAUGE_R05.gcode"    , [ 90,  0, 270], [    0, -111.7,   198], 0],
+    ["../amf/gcode/WINDGAUGE_R03_pm.gcode", [270,  0,   0], [    0,    -84,   198], 0],
+    ["../amf/gcode/WINDGAUGE_R04_pm.gcode"    , [  0,  0,   0], [    0,     48,   219], 0],
+    ["../amf/gcode/WINDGAUGE_R05_pm.gcode"    , [ 90,  0, 270], [    0, -111.7,   198], 0],
     ["../amf/gcode/BOLT_M3x12.gcode"       , [0  , 0,   90], [-13.6,   45.5,   216], 1],
     ["../amf/gcode/BOLT_M3x12.gcode"       , [0  , 0,   90], [ 13.6,   45.5,   216], 1],
     ["../amf/gcode/BOLT_M3x12.gcode"       , [0  , 90,   0], [-4.65,  -77.7, 222.3], 1],
@@ -140,10 +141,12 @@ cgy = np.sum(np.multiply(yc, mc))/np.sum(mc)
 cgz = np.sum(np.multiply(zc, mc))/np.sum(mc)
 
 print("Assembly COG is:", round(cgx, 2), round(cgy, 2), round(cgz, 2))
-print("Desired  COG is:", 0, 0, 100)
+print("Desired  COG is:", 0, 0, 198)
 print("translate([", cgx,"," , cgy, ",", cgz, "])")
 
-subprocess.run('cp ../amf/WINDGAUGE_R03_mod.amf result.amf', shell=True)
+sys.exit(0)
+
+subprocess.run('cp ../amf/WINDGAUGE_R03.amf result.amf', shell=True)
 
 mod_file = "result.amf" # Modifiable Component
 mod_x = "WINDGAUGE_R03_mod_X" # X axis modificator name
@@ -155,10 +158,13 @@ mods = {'x':{'used_dens':[0, get_mod(mod_file, mod_x), 101], 'index':1, 'mod_nam
         'y':{'used_dens':[0, get_mod(mod_file, mod_y), 101], 'index':1, 'mod_name':mod_y, 'cog':cgy},
         'z':{'used_dens':[0, get_mod(mod_file, mod_z), 101], 'index':1, 'mod_name':mod_z, 'cog':cgz - 198}}
 
-while abs(mods['x']['cog']) > 0.1 or abs(mods['y']['cog']) > 0.1 or abs(mods['z']['cog']) > 0.1:
+
+#while abs(mods['x']['cog']) > 0.1 or abs(mods['y']['cog']) > 0.1 or abs(mods['z']['cog']) > 0.1:
+while abs(mods['y']['cog']) > 0.1:
     print("########################## START ##################################################")
 
-    for axis in ['x', 'y', 'z']:
+    #for axis in ['x', 'y', 'z']:
+    for axis in ['y']:
         if mods[axis]['cog'] > 0.1:
             new_list, new_index = bisect(mods[axis]['used_dens'], mods[axis]['index'], "DOWN")
         elif mods[axis]['cog'] < -0.1:
