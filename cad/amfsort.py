@@ -57,8 +57,8 @@ sorted_vertices = [ vertices[order[i]] for i in range(len(vertices)) ]
 
 # Creation of sorted volumes as list of lists:
 # TODO after volumes are sorted, slic3r returns errors.
-sorted_volumes = sorted([[ order.index(x) for x in triangle ] for triangle in volumes ])
-#sorted_volumes = [[ order.index(x) for x in triangle ] for triangle in volumes ]
+#sorted_volumes = sorted([[ order.index(x) for x in triangle ] for triangle in volumes ])
+sorted_volumes = [[ order.index(x) for x in triangle ] for triangle in volumes ]
 
 # Change vertices order in AMF file:
 i = 0
