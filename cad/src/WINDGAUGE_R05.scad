@@ -3,6 +3,8 @@ use <./lib/copyFunctions.scad>
 
 draft = true;
 
+$fn = draft ? 20 : 100;
+
 module WINDGAUGE01A_R05(draft = true)
 {
     mirror_copy([0, 1, 0])
