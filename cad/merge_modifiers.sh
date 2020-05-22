@@ -258,11 +258,11 @@ function merge_modifiers {
   cat vertices.tmp volumes.tmp | sed 's/\r//' >> result.amf
   sed -n '/<\/mesh>/,//p' ${amf} | sed 's/\r//' >> result.amf
 
-  # Move merged AMF to amf folder with _mod suffix:
+  # Move merged AMF to amf folder:
   if [ -n "${out}" ]; then
     mv result.amf ${out}
   else
-    mv result.amf $(echo ${amf} | sed 's/\.amf$/_mod.amf/')
+    mv result.amf ${amf}
   fi
 
   # Clean-up tmp files
