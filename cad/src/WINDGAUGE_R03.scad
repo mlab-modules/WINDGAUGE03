@@ -3,19 +3,15 @@ use <./lib/naca4.scad>
 use <./lib/curvedPipe.scad>
 use <./lib/copyFunctions.scad>
 use <WINDGAUGE_R06.scad>
+use <WINDGAUGE_R05.scad>
 
-//@set_slicing_parameter(fill_density, 10%)
-//@set_modifier(WINDGAUGE_R03_mod_X)
+//@set_slicing_parameter(fill_density, 1%)
 //@set_modifier(WINDGAUGE_R03_mod_Y)
-//@set_modifier(WINDGAUGE_R03_mod_Z)
-//@set_modifier_parameter(WINDGAUGE_R03_mod_X, mod_name, WINDGAUGE_R03_mod_X)
-//@set_modifier_parameter(WINDGAUGE_R03_mod_X, fill_density, 49%)
 //@set_modifier_parameter(WINDGAUGE_R03_mod_Y, mod_name, WINDGAUGE_R03_mod_Y)
-//@set_modifier_parameter(WINDGAUGE_R03_mod_Y, fill_density, 88%)
-//@set_modifier_parameter(WINDGAUGE_R03_mod_Z, mod_name, WINDGAUGE_R03_mod_Z)
-//@set_modifier_parameter(WINDGAUGE_R03_mod_Z, fill_density, 100%)
+//@set_modifier_parameter(WINDGAUGE_R03_mod_Y, fill_density, 81%)
 
 draft = true;
+//print_check = false;
 $fn = draft ? 20 : 100;
 slip_ring_z = 2*R03_venturi_tube_height - R03_slip_ring_offset - 6*R03_wide_D;
 // length of tube narrowing part
@@ -25,7 +21,9 @@ exhaust_length = ((R03_wide_D - R03_narrow_D) / 2) / tan(12 / 2);
 // length of wide tube part on bottom and top
 wide_body_length = (R03_venturi_tube_height - intake_length - exhaust_length
                     - R03_narrow_D) / 2;
+cable_rounding_radius = 3;
 
+//module pipes(h = 0)
 module pipes()
 {
     // Cabling
@@ -37,15 +35,23 @@ module pipes()
     d = (R03_wide_D + 2*R03_wall_thickness)/2 - R03_narrow_D/2 - R03_wall_thickness;
     cbl_x = 0;
     curvedPipe([[-mid_body_horizontal/2, PCB_y + d + R03_wall_thickness/2 - 1, PCB_z + d ],
+//                [-mid_body_horizontal, -mid_body_horizontal + 2.9, PCB_z + d ],
+//                [-mid_body_horizontal - 1, 0                     , PCB_z - 5 ],
+//                [-mid_body_horizontal, mid_body_horizontal       , mid_body_vertical ],
+//                [0                   , mid_body_horizontal + 0.2 , slip_ring_z       ],
+//                [0                   , mid_body_horizontal + 10  , slip_ring_z       ],
                 [-mid_body_horizontal, -mid_body_horizontal    , PCB_z + d ],
                 [-mid_body_horizontal - 1, 0                   , PCB_z - 5 ],
-                [-mid_body_horizontal, mid_body_horizontal     , mid_body_vertical ],
-                [0                   , mid_body_horizontal     , slip_ring_z       ],
+                [-mid_body_horizontal - 1, mid_body_horizontal     , mid_body_vertical ],
+                [0                   , mid_body_horizontal + 2 , slip_ring_z       ],
                 [0                   , mid_body_horizontal + 10, slip_ring_z       ],
                ],
                 5,
+//                [mid_body_horizontal/1.2 + h, d/2 + 0.1 + h,
+//                 mid_body_horizontal - 2 + h, d/2 + 0.1 + h],
                 [mid_body_horizontal/1.2, d/2 + 0.1,
                  mid_body_horizontal - 2, d/2 + 0.1],
+//                d + h,
                 d,
                 0);
     // Cabling ramp
@@ -56,13 +62,13 @@ module pipes()
             // Lower ramp below PCB casing is R03_PCB_height*0.1
             // PCB_z starts at the bottom of the casing ramp.
             points = [ // 0 = top left front
-                     [-R03_PCB_width/2 + 1, 0, 2*R03_PCB_height*0.1],
+                     [-R03_PCB_width/2 + 1, -0.01, 2*R03_PCB_height*0.1],
                      // 1 = top right
-                     [R03_PCB_width/2 - 1, 0, 2*R03_PCB_height*0.1],
+                     [R03_PCB_width/2 - 1, -0.01, 2*R03_PCB_height*0.1],
                      // 2 = bottom right
-                     [R03_PCB_width/2 - 1, 0, R03_PCB_height*0.1],
+                     [R03_PCB_width/2 - 1, -0.01, R03_PCB_height*0.1],
                      // 3 = bottom left front
-                     [-R03_PCB_width/2 + 1, 0, R03_PCB_height*0.1],
+                     [-R03_PCB_width/2 + 1, -0.01, R03_PCB_height*0.1],
                      // 4 = top left back
                      [-R03_PCB_width/2 + 1, 1.3*d + R03_wall_thickness/2, 2*R03_PCB_height*0.1],
                      // 5 = bottom left back
@@ -88,12 +94,15 @@ module pipes()
                 [vup_x, vup_y_out                                     , vup_z_out],
                ],
                 3,
+//                [R03_air_tube_diameter/2 + 0.1 + h, R03_air_tube_diameter/2 + 0.1 + h],
+//                R03_air_tube_diameter + h,
                 [R03_air_tube_diameter/2 + 0.1, R03_air_tube_diameter/2 + 0.1],
                 R03_air_tube_diameter,
                 0);
     // Sealing ring extension
     sensor_y = vup_y_out - R03_PCB_elevation - R03_PCB_connector_overlay
                + R03_sensor_depth;
+//    sealing_ring_extension(vup_x, sensor_y, vup_y_out, vup_z_out, h);
     sealing_ring_extension(vup_x, sensor_y, vup_y_out, vup_z_out);
 
     // Venturi lower pipe
@@ -109,10 +118,13 @@ module pipes()
                 [vlp_x, vlp_y_out                                       , vlp_z_out],
                ],
                 3,
+//                [R03_air_tube_diameter/2 + 0.1 + h, R03_air_tube_diameter/2 + 0.1 + h],
+//                R03_air_tube_diameter + h,
                 [R03_air_tube_diameter/2 + 0.1, R03_air_tube_diameter/2 + 0.1],
                 R03_air_tube_diameter,
                 0);
     // Sealing ring extension
+//    sealing_ring_extension(vlp_x, sensor_y, vlp_y_out, vlp_z_out, h);
     sealing_ring_extension(vlp_x, sensor_y, vlp_y_out, vlp_z_out);
 }
 
@@ -195,7 +207,6 @@ module drop_shape(drop_length, draft)
                                 ]
                     );
             }
-            cable_rounding_radius = 3;
             translate([-R03_PCB_width/2 -cable_spacing + cable_rounding_radius, 0,
                        -R03_PCB_height*1.1 - R03_PCB_top_rim - cable_spacing
                        + cable_rounding_radius])
@@ -213,18 +224,21 @@ module drop_shape(drop_length, draft)
     }
 }
 
+//module sealing_ring_extension(x, sensor_y, pipe_y, z, h)
 module sealing_ring_extension(x, sensor_y, pipe_y, z)
 {
-        translate([x, sensor_y, z])
+        translate([x, sensor_y + 0.01, z])
         {
             rotate([90, 0, 0])
-                cylinder (h = R03_sensor_depth,
+                cylinder (h = R03_sensor_depth + 0.02,
                           d = R03_sensor_diameter);
             translate([0, abs(sensor_y) - abs(pipe_y), 0])
             {
 
                 rotate([90, 0, 0])
-                    cylinder (h = abs(sensor_y) - abs(pipe_y),
+                    cylinder (h = abs(sensor_y) - abs(pipe_y) + 0.01,
+//                              d1 = R03_air_tube_diameter + h,
+//                              d2 = R03_sealing_ring_thickness + h);
                               d1 = R03_air_tube_diameter,
                               d2 = R03_sealing_ring_thickness);
             }
@@ -244,11 +258,11 @@ module WINDGAUGE03A_R03(draft = true)
                 {
                     drop_shape(2*R03_wide_D, draft);
                     // TOP cutout
-                    translate([-R03_wide_D, -R03_wide_D, -2*R03_wide_D])
-                        cube([R03_wide_D*2, R03_wide_D, 2*R03_wide_D]);
+                    translate([-R03_wide_D, -R03_wide_D, -3*R03_wide_D])
+                        cube([R03_wide_D*2, R03_wide_D, 4*R03_wide_D]);
                 }
                     // PCB elevation
-                    translate([-R03_PCB_width/2, 0, -R03_PCB_top_rim])
+                    translate([-R03_PCB_width/2, 0.01, -R03_PCB_top_rim])
                         intersection(){
                             polyhedron
                             (
@@ -321,7 +335,6 @@ module WINDGAUGE03A_R03(draft = true)
                                         [4, 2, 0, 6],
                                       ]
                             );
-                            cable_rounding_radius=3;
                             translate([cable_rounding_radius,0,-R03_PCB_height])
                             {
                               rotate([90,0,0])
@@ -364,32 +377,36 @@ module WINDGAUGE03A_R03(draft = true)
                 translate([-R03_fin_holder_width/2, 0, 0])
                     cube([R03_fin_holder_width, R03_fin_holder_depth, R03_fin_holder_height]);
                 // Bolt hole
-                #translate([-R03_fin_holder_width/2,
+                translate([-R03_fin_holder_width,
                            R03_fin_holder_depth - R03_fin_holder_height/2,
                            R03_fin_holder_height/2])
                     rotate([0, 90, 0])
-                        cylinder(h = R03_fin_holder_width, d = M3_bolt_diameter);
+                        cylinder(h = 2*R03_fin_holder_width, d = M3_bolt_diameter);
                 // Nut holes
-                #mirror_copy([1, 0, 0])
+                mirror_copy([1, 0, 0])
                     translate([R03_fin_holder_width/2 - M3_nut_height,
                                R03_fin_holder_depth - R03_fin_holder_height/2,
                                R03_fin_holder_height/2])
                         rotate([0, 90, 0])
-                            cylinder(h = M3_nut_height, d = M3_nut_diameter, $fn=6);
+                            cylinder(h = 2*M3_nut_height, d = M3_nut_diameter, $fn=6);
             }
 
             // Draft pipes (half transparent)
             if (draft)
-                #pipes();
+                %pipes();
         }
 
         // Air and cabling pipes cut-out
         if (!draft)
             pipes();
 
-        // Fin cut-out
-        translate([-R03_fin_width/2, -R03_fin_holder_depth, 0])
-            cube([R03_fin_width, 2*R03_fin_holder_depth, 2*R03_fin_holder_height]);
+        // Fin cut-out - TODO remove double cut-out nonsense just to avoid M3_bolts
+        translate([-R03_fin_width/2, 0, -R03_fin_length/2 + R03_fin_holder_depth/2 + R03_global_clearance])
+            rotate([0, 90, 0])
+                WINDGAUGE01A_R05();
+        translate([-R03_fin_width/2, -2*M3_bolt_diameter, -R03_fin_length/2 + R03_fin_holder_depth/2 + R03_global_clearance])
+            rotate([0, 90, 0])
+                WINDGAUGE01A_R05();
 
         // Slip-ring opening
         translate([0, R03_wide_D/2 + 5, slip_ring_z])
@@ -404,29 +421,29 @@ module WINDGAUGE03A_R03(draft = true)
         // Waterproofing
         translate([0, R03_wide_D/2 + 5, slip_ring_z])
             rotate([-90, 0, 0])
-                cylinder (h = R01_vyska_prekryti_statoru + R04_zavit_vyska + 0.01,
+                cylinder (h = R01_vyska_prekryti_statoru + R04_zavit_vyska + 0.02,
                           r = S01_prumer_vnitrni/2 + 2.5*S01_sila_materialu
                               + 2*R03_global_clearance);
 
         // Venturi wide in
-        translate([0, 0, R03_venturi_tube_height - wide_body_length])
-            cylinder (h = wide_body_length, d = R03_wide_D);
+        translate([0, 0, R03_venturi_tube_height - wide_body_length - 0.01])
+            cylinder (h = wide_body_length + 0.02, d = R03_wide_D);
 
         // Venturi intake
         translate([0, 0, wide_body_length + exhaust_length + R03_narrow_D])
             cylinder (h = intake_length, d1 = R03_narrow_D, d2 = R03_wide_D);
 
         // Venturi narrow
-        translate([0, 0, wide_body_length + exhaust_length])
-            cylinder (h = R03_narrow_D, d = R03_narrow_D);
+        translate([0, 0, wide_body_length + exhaust_length - 0.01])
+            cylinder (h = R03_narrow_D + 0.02, d = R03_narrow_D);
 
         // Venturi exhaust
         translate([0, 0, wide_body_length])
             cylinder (h = exhaust_length, d1 = R03_wide_D, d2 = R03_narrow_D);
 
         // Venturi wide out
-        translate([0, 0, 0])
-            cylinder (h = wide_body_length, d = R03_wide_D);
+        translate([0, 0, -0.01])
+            cylinder (h = wide_body_length + 0.02, d = R03_wide_D);
 
         // Left nut cut-out
        translate([-R03_PCB_width/2 - M3_nut_diameter, -R03_wide_D/2,
@@ -437,6 +454,8 @@ module WINDGAUGE03A_R03(draft = true)
                     cube([M3_nut_diameter, R03_wide_D, M3_nut_height]);
                 cylinder(h = M3_nut_height,
                          d = M3_nut_diameter, $fn = 6);
+                translate([0, 0, -R03_wide_D + M3_nut_height/2])
+                    cylinder (h = R03_wide_D, d = M3_bolt_diameter);
             }
 
         // Right nut cut-out
@@ -449,6 +468,8 @@ module WINDGAUGE03A_R03(draft = true)
                     cube([M3_nut_diameter, R03_wide_D, M3_nut_height]);
                 cylinder(h = M3_nut_height,
                          d = M3_nut_diameter, $fn = 6);
+                translate([0, 0, M3_nut_height/2])
+                    cylinder (h = R03_wide_D, d = M3_bolt_diameter);
             }
     }
 }
@@ -463,27 +484,34 @@ difference()
     // Cut-out cube
     if (draft)
         translate([-R03_wide_D, -R03_venturi_tube_height/2, R03_venturi_tube_height/2 + 28])
-            cube([R03_wide_D, R03_venturi_tube_height, R03_venturi_tube_height]);
+            cube([R03_wide_D, R03_venturi_tube_height, R03_venturi_tube_height + 0.02]);
 }
 
-module WINDGAUGE_R03_mod_X(draft = true)
-{
-  translate([S01_prumer_vnitrni/2, -(S01_prumer_vnitrni * 1.6)/2 + R03_wide_D/2 + 5, slip_ring_z + S01_prumer_vnitrni/4])
-      cube([S01_prumer_vnitrni, S01_prumer_vnitrni * 1.6, S01_prumer_vnitrni/2], center = true);
-}
+//if (print_check)
+//    color("red")
+//    difference(){
+//        pipes(1.4);
+//        WINDGAUGE03A_R03(true);
+//    }
+
+//module WINDGAUGE_R03_mod_X(draft = true)
+//{
+//  translate([S01_prumer_vnitrni/2, -(S01_prumer_vnitrni * 1.6)/2 + R03_wide_D/2 + 5, slip_ring_z + S01_prumer_vnitrni/4])
+//      cube([S01_prumer_vnitrni, S01_prumer_vnitrni * 1.6, S01_prumer_vnitrni/2], center = true);
+//}
 
 module WINDGAUGE_R03_mod_Y(draft = true)
 {
-  translate([0, 0, slip_ring_z + S01_prumer_vnitrni/4 + S01_prumer_vnitrni/2 + S01_prumer_vnitrni/4])
-      cube([S01_prumer_vnitrni  * 1.6, S01_prumer_vnitrni * 1.6, S01_prumer_vnitrni], center = true);
+  translate([0, 0, slip_ring_z + S01_prumer_vnitrni])
+      cube([S01_prumer_vnitrni  * 1.6, S01_prumer_vnitrni * 1.6, 2*S01_prumer_vnitrni], center = true);
 }
 
-module WINDGAUGE_R03_mod_Z(draft = true)
-{
-  hull_bottom = slip_ring_z - S01_prumer_vnitrni/2 - 5 - R01_vyska_prekryti_statoru - R04_zavit_vyska;
-  translate([0, S01_prumer_vnitrni/2 + R03_wide_D/2 + 5, slip_ring_z])
-      cube([S01_prumer_vnitrni*2, S01_prumer_vnitrni , R03_venturi_tube_height - hull_bottom], center = true);
-}
+//module WINDGAUGE_R03_mod_Z(draft = true)
+//{
+//  hull_bottom = slip_ring_z - S01_prumer_vnitrni/2 - 5 - R01_vyska_prekryti_statoru - R04_zavit_vyska;
+//  translate([0, S01_prumer_vnitrni/2 + R03_wide_D/2 + 5, slip_ring_z - S01_prumer_vnitrni/2 - 0.1])
+//      cube([S01_prumer_vnitrni*2, S01_prumer_vnitrni , S01_prumer_vnitrni], center = true);
+//}
 
 //%WINDGAUGE_R03_mod_X();
 //%WINDGAUGE_R03_mod_Y();
