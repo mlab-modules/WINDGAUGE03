@@ -112,13 +112,13 @@ mc = [] # m of components
 #TODO read components from assembly?
 # Columns are path to gcode | rotations | movements | mass in grams
 components = [
-    ["../amf/gcode/WINDGAUGE_R03_pm.gcode", [270,  0,   0], [    0,    -84,   198], 0],
-    ["../amf/gcode/WINDGAUGE_R04_pm.gcode"    , [  0,  0,   0], [    0,     48,   219], 0],
-    ["../amf/gcode/WINDGAUGE_R05_pm.gcode"    , [ 90,  0, 270], [    0, -111.7,   198], 0],
-    ["../amf/gcode/BOLT_M3x12.gcode"       , [0  , 0,   90], [-13.6,   45.5,   216], 1],
-    ["../amf/gcode/BOLT_M3x12.gcode"       , [0  , 0,   90], [ 13.6,   45.5,   216], 1],
-    ["../amf/gcode/BOLT_M3x12.gcode"       , [0  , 90,   0], [-4.65,  -77.7, 222.3], 1],
-    ["../amf/gcode/BOLT_M3x12.gcode"       , [0  , 90,   0], [-4.65,  -77.7, 173.7], 1],
+    ["../amf/gcode/WINDGAUGE_R03_pm.gcode" , [270,  0,   0], [    0,  -84.0, 198.0], 0],
+    ["../amf/gcode/WINDGAUGE_R04_pm.gcode" , [  0,  0,   0], [    0,   48.0, 221.0], 0],
+    ["../amf/gcode/WINDGAUGE_R05_pm.gcode" , [ 90,  0, 270], [    0, -107.4, 198.0], 0],
+    ["../amf/gcode/BOLT_M3x12.gcode"       , [  0,  0,  90], [-13.6,   45.5, 213.3], 1],
+    ["../amf/gcode/BOLT_M3x12.gcode"       , [  0,  0,  90], [ 13.6,   45.5, 213.3], 1],
+    ["../amf/gcode/BOLT_M3x12.gcode"       , [  0, 90,   0], [-7.35,  -75.7, 224.3], 1],
+    ["../amf/gcode/BOLT_M3x12.gcode"       , [  0, 90,   0], [-7.35,  -75.7, 171.7], 1],
 ]
 
 print("########################## START ##################################################")
