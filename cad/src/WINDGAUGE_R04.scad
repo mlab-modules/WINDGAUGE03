@@ -2,7 +2,7 @@ include <../configuration.scad>
 include <./lib/polyScrewThread_r1.scad>
 use <WINDGAUGE_R03.scad>
 
-//@set_slicing_parameter(fill_density, 100%)
+//@set_slicing_parameter(perimeters, 6)
 
 draft = true;
 $fn = draft ? 20 : 100;

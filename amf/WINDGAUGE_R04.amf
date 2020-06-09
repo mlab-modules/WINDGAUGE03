@@ -164921,7 +164921,7 @@
      <v2>10952</v2>
      <v3>10953</v3>
     </triangle>
-   <metadata type="slic3r.fill_density">100%</metadata>
+   <metadata type="slic3r.perimeters">6</metadata>
    </volume>
   </mesh>
  </object>
