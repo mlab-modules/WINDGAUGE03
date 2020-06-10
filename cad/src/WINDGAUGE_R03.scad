@@ -9,7 +9,10 @@ use <WINDGAUGE_R05.scad>
 //@set_slicing_parameter(fill_density, 1%)
 //@set_modifier(WINDGAUGE_R03_mod_Y)
 //@set_modifier_parameter(WINDGAUGE_R03_mod_Y, mod_name, WINDGAUGE_R03_mod_Y)
-//@set_modifier_parameter(WINDGAUGE_R03_mod_Y, fill_density, 51%)
+//@set_modifier_parameter(WINDGAUGE_R03_mod_Y, fill_density, 44%)
+//@set_modifier(WINDGAUGE_R03_mod_Z)
+//@set_modifier_parameter(WINDGAUGE_R03_mod_Z, mod_name, WINDGAUGE_R03_mod_Z)
+//@set_modifier_parameter(WINDGAUGE_R03_mod_Z, fill_density, 100%)
 
 draft = true;
 $fn = draft ? 20 : 100;
@@ -458,8 +461,16 @@ difference()
 
 module WINDGAUGE_R03_mod_Y(draft = true)
 {
-  translate([0, 0, slip_ring_z + S01_prumer_vnitrni])
+  translate([0, -16, slip_ring_z + S01_prumer_vnitrni])
       cube([S01_prumer_vnitrni  * 1.6, S01_prumer_vnitrni * 1.6, 2*S01_prumer_vnitrni], center = true);
 }
 
-//%WINDGAUGE_R03_mod_Y();
+module WINDGAUGE_R03_mod_Z(draft = true)
+{
+  hull_bottom = slip_ring_z - S01_prumer_vnitrni/2 - 5 - R01_vyska_prekryti_statoru - R04_zavit_vyska;
+  translate([0, S01_prumer_vnitrni/2 + R03_wide_D/2 + 5, slip_ring_z - 0.1 + 20])
+      cube([S01_prumer_vnitrni*2, S01_prumer_vnitrni , S01_prumer_vnitrni*3], center = true);
+}
+
+%WINDGAUGE_R03_mod_Y();
+%WINDGAUGE_R03_mod_Z();
