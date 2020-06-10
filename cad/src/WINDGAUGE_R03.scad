@@ -5,10 +5,11 @@ use <./lib/copyFunctions.scad>
 use <WINDGAUGE_R06.scad>
 use <WINDGAUGE_R05.scad>
 
+//@set_slicing_parameter(infill_only_where_needed, 0)
 //@set_slicing_parameter(fill_density, 1%)
 //@set_modifier(WINDGAUGE_R03_mod_Y)
 //@set_modifier_parameter(WINDGAUGE_R03_mod_Y, mod_name, WINDGAUGE_R03_mod_Y)
-//@set_modifier_parameter(WINDGAUGE_R03_mod_Y, fill_density, 81%)
+//@set_modifier_parameter(WINDGAUGE_R03_mod_Y, fill_density, 51%)
 
 draft = true;
 $fn = draft ? 20 : 100;
