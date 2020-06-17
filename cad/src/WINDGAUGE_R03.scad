@@ -10,13 +10,17 @@ use <WINDGAUGE_R05.scad>
 //@set_modifier(WINDGAUGE_R03_mod_Y)
 //@set_modifier_parameter(WINDGAUGE_R03_mod_Y, mod_name, WINDGAUGE_R03_mod_Y)
 //@set_modifier_parameter(WINDGAUGE_R03_mod_Y, fill_density, 44%)
+//@set_modifier_parameter(WINDGAUGE_R03_mod_Y, infill_only_where_needed, 0)
 //@set_modifier(WINDGAUGE_R03_mod_Z)
 //@set_modifier_parameter(WINDGAUGE_R03_mod_Z, mod_name, WINDGAUGE_R03_mod_Z)
 //@set_modifier_parameter(WINDGAUGE_R03_mod_Z, fill_density, 100%)
+//@set_modifier_parameter(WINDGAUGE_R03_mod_Z, infill_only_where_needed, 0)
 
 draft = true;
 $fn = draft ? 20 : 100;
 slip_ring_z = 2*R03_venturi_tube_height - R03_slip_ring_offset - 6*R03_wide_D;
+// slip ring diameter
+slip_ring_d = 8;
 // length of tube narrowing part
 intake_length = ((R03_wide_D - R03_narrow_D) / 2) / tan(19 / 2);
 // length of tube widening part
@@ -371,10 +375,10 @@ module WINDGAUGE03A_R03(draft = true)
                 WINDGAUGE01A_R05();
 
         // Slip-ring opening
-        translate([0, R03_wide_D/2 + 5 + 0.01, slip_ring_z])
+        #translate([0, R03_wide_D/2 + 5 + 0.01, slip_ring_z])
             rotate([90, 0, 0])
             {
-                cylinder(h=8 + 0.01, d=7.61);
+                cylinder(h=slip_ring_d + 0.01, d=7.61);
                 translate([-7.61/2 - 2, -2, 7])
                 {
                     cube([7.61,4,4.5]);
@@ -443,6 +447,19 @@ module WINDGAUGE03A_R03(draft = true)
                 translate([0, 0, M3_nut_height/2])
                     cylinder (h = R03_wide_D, d = M3_bolt_diameter);
             }
+
+        // Slip_ring tightening nut cut-outs
+        #translate([0, R03_wide_D/2, slip_ring_z])
+            rotate_copy([0, 180, 0])
+                rotate([0, 90, 0])
+                {
+                    translate([-slip_ring_d*0.8, 0, -R03_wide_D - M3_bolt_length/2 + M3_nut_height/2])
+                        cylinder(h = R03_wide_D, d = M3_nut_diameter, $fn = 6);
+                    translate([-slip_ring_d*0.8, 0, -M3_bolt_length/2 + M3_nut_height/2 - 0.01])
+                        cylinder (h = 2*R03_wide_D, d = M3_bolt_diameter);
+                    translate([-slip_ring_d*0.8, 0, M3_bolt_length/2 - M3_nut_height/2])
+                        cylinder (h = 2*R03_wide_D, d = M3_nut_diameter);
+                }
     }
 }
 
@@ -455,7 +472,7 @@ difference()
         WINDGAUGE03A_R03(true);
     // Cut-out cube
     if (draft)
-        translate([-R03_wide_D, -R03_venturi_tube_height/2 + 87.7, R03_venturi_tube_height/2 + 10])
+        translate([-R03_wide_D + 10, -R03_venturi_tube_height/2 + 87.7, R03_venturi_tube_height/2 - 10])
             cube([R03_wide_D, R03_venturi_tube_height, R03_venturi_tube_height + 0.02]);
 }
 
@@ -472,5 +489,5 @@ module WINDGAUGE_R03_mod_Z(draft = true)
       cube([S01_prumer_vnitrni*2, S01_prumer_vnitrni , S01_prumer_vnitrni*3], center = true);
 }
 
-%WINDGAUGE_R03_mod_Y();
-%WINDGAUGE_R03_mod_Z();
+//%WINDGAUGE_R03_mod_Y();
+//%WINDGAUGE_R03_mod_Z();
