@@ -10,17 +10,26 @@
 <!--- Name:WINDGAUGE03A: --->
 # WINDGAUGE03A
 <!--- LongName --->
-## WINDGAUGE03A
+## Venturi tube based anemometer
 <!--- ELongName ---> 
 
 <!--- Lead --->
-Venturi tube based anemometer
+High-endurance venturi anemometer with minimum moving parts. 
 <!--- ELead ---> 
+
+<!--- Description --->
 
 ![WINDGAUGE03A](doc/img/WINDGAUGE03A.jpg) 
 
+### Advantages
+  * Minimised number of moving parts results in increased durability
+  * Venturi effect allows accurate measurement in wide range of speeds. 
 
-<!--- Description --->
+### Function principle
+
+The anemometer consists the IMU sensor ICM-20948 which contains magnetometer, gyroscopes and accelerometers. The IMU allows sophisticated data aquisition for failure detection and gust wind analysis. 
+
+![WINDGAUGE03A schematics](doc/img/schematics.png) 
 
 ### Main parameters
   
