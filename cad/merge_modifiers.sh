@@ -106,8 +106,8 @@ function verbose_print {
 #
 #           Inputs: -a, --amf <file> ..... Base AMF file
 #                   -h, --help ........... Print help and exit
-#                   -o, --output <file> .. Ouput file (by default, the file will be
-#                                          saved in amf directory with suffix _mod)
+#                   -o, --output <file> .. Ouput file (by default, the base
+#                                          file will be overwritten
 #                   -s, --scad <file> .... Base SCAD file
 #                   -v, --verbose ........ VERBOSE=true
 #

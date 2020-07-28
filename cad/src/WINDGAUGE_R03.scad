@@ -449,7 +449,7 @@ module WINDGAUGE03A_R03(draft = true)
             }
 
         // Slip_ring tightening nut cut-outs
-        #translate([0, R03_wide_D/2, slip_ring_z])
+        translate([0, R03_wide_D/2, slip_ring_z])
             rotate_copy([0, 180, 0])
                 rotate([0, 90, 0])
                 {
@@ -472,21 +472,22 @@ difference()
         WINDGAUGE03A_R03(true);
     // Cut-out cube
     if (draft)
-        translate([-R03_wide_D + 10, -R03_venturi_tube_height/2 + 87.7, R03_venturi_tube_height/2 - 10])
+        translate([-R03_wide_D, -R03_venturi_tube_height/2, R03_venturi_tube_height/2])
             cube([R03_wide_D, R03_venturi_tube_height, R03_venturi_tube_height + 0.02]);
 }
 
 module WINDGAUGE_R03_mod_Y(draft = true)
 {
-  translate([0, -16, slip_ring_z + S01_prumer_vnitrni])
-      cube([S01_prumer_vnitrni  * 1.6, S01_prumer_vnitrni * 1.6, 2*S01_prumer_vnitrni], center = true);
+    translate([0, -16, slip_ring_z + S01_prumer_vnitrni])
+        cube([S01_prumer_vnitrni  * 1.6, S01_prumer_vnitrni * 1.6, 2*S01_prumer_vnitrni],
+             center = true);
 }
 
 module WINDGAUGE_R03_mod_Z(draft = true)
 {
-  hull_bottom = slip_ring_z - S01_prumer_vnitrni/2 - 5 - R01_vyska_prekryti_statoru - R04_zavit_vyska;
-  translate([0, S01_prumer_vnitrni/2 + R03_wide_D/2 + 5, slip_ring_z - 0.1 + 20])
-      cube([S01_prumer_vnitrni*2, S01_prumer_vnitrni , S01_prumer_vnitrni*3], center = true);
+    translate([0, S01_prumer_vnitrni/2 + R03_wide_D/2 + 5, slip_ring_z - 0.1 + 20])
+        cube([S01_prumer_vnitrni*2, S01_prumer_vnitrni , S01_prumer_vnitrni*3],
+             center = true);
 }
 
 //%WINDGAUGE_R03_mod_Y();
