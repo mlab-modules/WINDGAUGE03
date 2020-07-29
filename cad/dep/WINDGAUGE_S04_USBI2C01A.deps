@@ -1,4 +1,4 @@
-../amf/WINDGAUGE_S04_USBI2C01A.amf: \
 	src/WINDGAUGE_S04_USBI2C01A.scad \
 	src/lib/polyScrewThread_r1.scad \
 	configuration.scad \
+../amf/WINDGAUGE_S04_USBI2C01A.amf: \

@@ -1,4 +1,3 @@
-../amf/WINDGAUGE_R03.amf: \
 	src/WINDGAUGE_R06.scad \
 	src/WINDGAUGE_R05.scad \
 	src/WINDGAUGE_R03.scad \
@@ -9,4 +8,6 @@
 	src/lib/maths.scad \
 	src/lib/curvedPipe.scad \
 	src/lib/copyFunctions.scad \
+	src/assets/graphics/MLAB_logo.scad \
 	configuration.scad \
+../amf/WINDGAUGE_R03.amf: \
