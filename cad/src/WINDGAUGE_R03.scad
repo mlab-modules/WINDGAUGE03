@@ -9,11 +9,11 @@ use <WINDGAUGE_R05.scad>
 //@set_slicing_parameter(fill_density, 1%)
 //@set_modifier(WINDGAUGE_R03_mod_Y)
 //@set_modifier_parameter(WINDGAUGE_R03_mod_Y, mod_name, WINDGAUGE_R03_mod_Y)
-//@set_modifier_parameter(WINDGAUGE_R03_mod_Y, fill_density, 44%)
+//@set_modifier_parameter(WINDGAUGE_R03_mod_Y, fill_density, 53%)
 //@set_modifier_parameter(WINDGAUGE_R03_mod_Y, infill_only_where_needed, 0)
 //@set_modifier(WINDGAUGE_R03_mod_Z)
 //@set_modifier_parameter(WINDGAUGE_R03_mod_Z, mod_name, WINDGAUGE_R03_mod_Z)
-//@set_modifier_parameter(WINDGAUGE_R03_mod_Z, fill_density, 100%)
+//@set_modifier_parameter(WINDGAUGE_R03_mod_Z, fill_density, 50%)
 //@set_modifier_parameter(WINDGAUGE_R03_mod_Z, infill_only_where_needed, 0)
 
 draft = true;
@@ -359,7 +359,7 @@ module WINDGAUGE03A_R03(draft = true)
 
             // Draft pipes (half transparent)
             if (draft)
-                %pipes();
+                pipes();
         }
 
         // Air and cabling pipes cut-out
@@ -375,7 +375,7 @@ module WINDGAUGE03A_R03(draft = true)
                 WINDGAUGE01A_R05();
 
         // Slip-ring opening
-        #translate([0, R03_wide_D/2 + 5 + 0.01, slip_ring_z])
+        translate([0, R03_wide_D/2 + 5 + 0.01, slip_ring_z])
             rotate([90, 0, 0])
             {
                 cylinder(h=slip_ring_d + 0.01, d=7.61);
@@ -467,7 +467,8 @@ difference()
 {
     // If not draft -> move to print position.
     if (!draft)
-        WINDGAUGE03A_R03(false);
+        rotate([0, 0, 180])
+            WINDGAUGE03A_R03(false);
     else
         WINDGAUGE03A_R03(true);
     // Cut-out cube
@@ -478,17 +479,29 @@ difference()
 
 module WINDGAUGE_R03_mod_Y(draft = true)
 {
-    translate([0, -16, slip_ring_z + S01_prumer_vnitrni])
-        cube([S01_prumer_vnitrni  * 1.6, S01_prumer_vnitrni * 1.6, 2*S01_prumer_vnitrni],
-             center = true);
+    if (!draft)
+        rotate([0, 0, 180])
+        translate([0, -16, slip_ring_z + S01_prumer_vnitrni])
+            cube([S01_prumer_vnitrni  * 1.6, S01_prumer_vnitrni * 1.6, 2*S01_prumer_vnitrni],
+                 center = true);
+    else
+        translate([0, -16, slip_ring_z + S01_prumer_vnitrni])
+            cube([S01_prumer_vnitrni  * 1.6, S01_prumer_vnitrni * 1.6, 2*S01_prumer_vnitrni],
+                 center = true);
 }
 
 module WINDGAUGE_R03_mod_Z(draft = true)
 {
-    translate([0, S01_prumer_vnitrni/2 + R03_wide_D/2 + 5, slip_ring_z - 0.1 + 20])
-        cube([S01_prumer_vnitrni*2, S01_prumer_vnitrni , S01_prumer_vnitrni*3],
-             center = true);
+    if (!draft)
+        rotate([0, 0, 180])
+        translate([0, S01_prumer_vnitrni/2 + R03_wide_D/2 + 5, slip_ring_z - 0.1 + 20])
+            cube([S01_prumer_vnitrni*2, S01_prumer_vnitrni , S01_prumer_vnitrni*3],
+                 center = true);
+    else
+        translate([0, S01_prumer_vnitrni/2 + R03_wide_D/2 + 5, slip_ring_z - 0.1 + 20])
+            cube([S01_prumer_vnitrni*2, S01_prumer_vnitrni , S01_prumer_vnitrni*3],
+                 center = true);
 }
 
-//%WINDGAUGE_R03_mod_Y();
-//%WINDGAUGE_R03_mod_Z();
+//%WINDGAUGE_R03_mod_Y(draft);
+//%WINDGAUGE_R03_mod_Z(draft);

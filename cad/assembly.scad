@@ -24,7 +24,7 @@ translate([0, 0, S01_z0])
 R03_y0 = -2*R03_venturi_tube_height + R03_slip_ring_offset + 6*R03_wide_D;
 R03_z0 = S01_z0 + R03_wide_D/2 + 5 + parts_separation;
 %translate([0, R03_y0, R03_z0])
-    rotate([270, 0, 0]){
+    rotate([270, 180, 0]){
         import("../doc/stl/WINDGAUGE_R03.stl");
     }
 echo("WINDGAUGE_R03 coordinates are: [0, ", R03_y0, R03_z0, "]");
