@@ -1,5 +1,7 @@
 include <../configuration.scad>
 use <./lib/copyFunctions.scad>
+use <./assets/graphics/MLAB_logo.scad>
+
 
 draft = true;
 
@@ -26,6 +28,19 @@ module WINDGAUGE01A_R05(draft = true)
                            -R03_fin_holder_depth + R03_fin_holder_height/2,
                            0])
                     cylinder(h = R03_fin_width, d = M3_bolt_diameter);
+        }
+
+        union (){
+            translate ([-5,0, 0])  // ODROIDs passive components hole.
+                rotate ([0,0,90])
+                    scale(v = [0.9, 0.9, 0.2])
+                        MLAB_logo_long();
+
+                        translate ([23,0, 0])  // ODROIDs passive components hole.
+                            rotate ([0,0,90])
+                              linear_extrude(1.1)
+                                text("WINDGAUGE03A", size=7, font="Liberation Sans", halign="center", valign="center");
+
         }
 }
 
