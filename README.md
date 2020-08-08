@@ -42,6 +42,10 @@ The anemometer consists the IMU sensor ICM-20948 which contains magnetometer, gy
   * Operational temperature range -20/+45 °C
   * Maximum hail diameter 0.5 cm 
 
+### Software installation 
+
+The anemometer uses [pymlab](https://github.com/MLAB-project/pymlab) software toolkit to interface with a station computer. The toolkit also contains an [example](https://github.com/MLAB-project/pymlab/blob/master/examples/windgauge03a_example.py) which allows basic calibration and data recording of anemometer data. 
+
 <!--- EDescription --->
 <!--- Content --->
 <!--- EContent --->
