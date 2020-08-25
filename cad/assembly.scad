@@ -30,12 +30,13 @@ R03_z0 = S01_z0 + R03_wide_D/2 + 5 + parts_separation;
 echo("WINDGAUGE_R03 coordinates are: [0, ", R03_y0, R03_z0, "]");
 
 //R04 - PCB lid
-R04_y0 = R03_venturi_tube_height + R03_y0 - R03_wide_D/2;
+R04_x0 = -R03_wide_D/2;
+R04_y0 = R03_venturi_tube_height + R03_y0;
 R04_z0 = R03_z0 + R03_wide_D/2 + R03_wall_thickness + parts_separation;
-%translate([0, R04_y0, R04_z0 + 0])
-    rotate([0, 0, 0])
+%translate([R04_x0, R04_y0, R04_z0 + 0])
+    rotate([0, 0, 270])
         import("../amf/WINDGAUGE_R04.amf");
-echo("WINDGAUGE_R04 coordinates are: [0, ", R04_y0, R04_z0, "]");
+echo("WINDGAUGE_R04 coordinates are: [", R04_x0, R04_y0, R04_z0, "]");
 
 
 //R05 - Fin
@@ -46,6 +47,26 @@ R05_z0 = R03_z0;
     rotate([90, 0, 270])
         import("../amf/WINDGAUGE_R05.amf");
 echo("WINDGAUGE_R05 coordinates are: [0, ", R05_y0, R05_z0, "]");
+
+// R03 Front Bolt
+FTB_x0 = -M3_bolt_length/2 - M3_nut_height/2;
+FTB_y0 = 6.5;
+FTB_z0 = R03_z0 - R03_wide_D/2;
+color([1, 1, 1])
+translate([FTB_x0, FTB_y0, FTB_z0])
+    rotate([0, 90, 0])
+        import("../amf/BOLT_M3x12.amf");
+echo("R03 Front Bolt coordinates are: [",FTB_x0, FTB_y0, FTB_z0,"]");
+
+// R03 Rear Bolt
+RTB_x0 = M3_bolt_length/2 + M3_nut_height/2;
+RTB_y0 = -6.5;
+RTB_z0 = R03_z0 - R03_wide_D/2;
+color([1, 1, 1])
+translate([RTB_x0, RTB_y0, RTB_z0])
+    rotate([0, 90, 180])
+        import("../amf/BOLT_M3x12.amf");
+echo("R03 Rear Bolt coordinates are: [",RTB_x0, RTB_y0, RTB_z0,"]");
 
 // R04 Left Bolt
 LLB_x0 = -R03_PCB_width/2 - M3_nut_diameter;
@@ -88,14 +109,20 @@ translate([LFB_x0, LFB_y0, LFB_z0])
 echo("R05 Lower Bolt coordinates are: [",LFB_x0, LFB_y0, LFB_z0,"]");
 
 // R03 COG
-translate([ 0.2378180000000043 , 5.722403 , 190.77831999999998 ])
+translate([ -0.4670859999999942 , 6.640354000000002 , 192.837544 ])
     color([0, 1, 1]) sphere(3);
 // R04 COG
-translate([ 0.018287999999998306 , 39.28335 , 227.801318 ])
+translate([ 1.0312389999999922 , 36.146445 , 228.245272 ])
     color([0, 1, 1]) sphere(3);
 // R05 COG
-translate([ -0.45247699999999885 , -101.17900200000001 , 198.008691 ])
+translate([ -0.4690809999999989 , -101.44978800000001 , 197.63449400000002 ])
     color([0, 1, 1]) sphere(3);
+// R03 Front Bolt COG
+translate([ 0.7782590000000003 , 6.506229000000005 , 179.993901 ])
+    color([1, 0, 0]) sphere(3);
+// R03 Rear Bolt COG
+translate([ -0.7782590000000003 , -6.506229000000004 , 179.993901 ])
+    color([1, 0, 0]) sphere(3);
 // R04 Left Bolt COG
 translate([ -13.606229000000004 , 45.506099000000006 , 221.42825900000003 ])
     color([1, 0, 0]) sphere(3);
@@ -110,7 +137,7 @@ translate([ 0.7782590000000003 , -75.693771 , 171.69390099999998 ])
     color([1, 0, 0]) sphere(3);
 
 // WINDGAUGE03_R* COG
-translate([ 0.17492201658768117 , 0.0278646700236967 , 194.5350358815166 ])
+translate([ -0.351634926309725 , 0.0062762700057576596 , 195.56655708002305 ])
     color([0, 0, 1]) sphere(3);
 
 // // Desired WINDGAUGE03_R* COG
