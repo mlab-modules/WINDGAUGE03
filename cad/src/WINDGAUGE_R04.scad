@@ -23,7 +23,7 @@ difference()
     // If not draft -> move to print position.
     if (!draft)
         translate([0, R03_wide_D/2, 0])
-            rotate([270, 0, 0])
+            rotate([270, 0, 90])
                 WINDGAUGE01A_R04(false);
     else
         WINDGAUGE01A_R04();
