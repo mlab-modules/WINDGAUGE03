@@ -1,3 +1,0 @@
-../amf/WINDGAUGE_D01.stl: \
-	src/WINDGAUGE_D01.scad \
-	configuration.scad \

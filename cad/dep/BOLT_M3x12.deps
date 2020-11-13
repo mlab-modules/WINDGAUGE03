@@ -1,3 +1,0 @@
-../amf/BOLT_M3x12.amf: \
-	src/BOLT_M3x12.scad \
-	configuration.scad \

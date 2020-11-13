@@ -42,76 +42,21 @@ module WINDGAUGE01A_S01(draft = true)
                           - S01_sila_materialu));
         //otvor na ložisko s vodiči
         translate([0, 0, S01_sila_materialu/2])
-            cylinder(h = S01_sila_materialu + 0.01,
-                     r = (LO_spodni_prumer + 0.2)/2,
-                     center = true);
+            cylinder(h = slip_ring_body_height, d = slip_ring_mount_diameter, center = true);
         }
         //držák ložiska
         difference()
         {
-            cylinder(h = LO_vyska_bez_krytu + 2 + prumer_sroubu + 2*S01_sila_materialu,
-                     r = (LO_spodni_prumer + 4*S01_sila_materialu) / 2);
+            cylinder(h = slip_ring_body_height, d = slip_ring_body_diameter + 4*S01_sila_materialu);
 
             //otvor na ložisko
-            cylinder(h = LO_vyska_bez_krytu + 2 + prumer_sroubu + 2*S01_sila_materialu + 0.5,
-                     r = (LO_spodni_prumer) / 2);
+            translate([0, 0, slip_ring_mount_height])
+                cylinder(h = slip_ring_body_height, d = slip_ring_body_diameter);
 
             //otvor na zasunuti loziska do ohradky
-            translate([0, 0, LO_vyska_bez_krytu])
-                cylinder(h = 2 + prumer_sroubu + 2*S01_sila_materialu + 0.5,
-                         r = (LO_spodni_prumer + 2*S01_sila_materialu) / 2);
-
-            //otvor na pojistny sroub
-            translate([0, (LO_spodni_prumer + 4*S01_sila_materialu + 1) / 2,
-                       LO_vyska_bez_krytu + 2 + 0.4 + prumer_sroubu/2])
-                rotate(a = [90, 0, 0])
-                    cylinder(h = LO_spodni_prumer + 4*S01_sila_materialu + 1,
-                             r = prumer_sroubu/2);
+            cylinder(h = slip_ring_body_height, d = slip_ring_mount_diameter);
         }
-        /*
-        //držák ložiska doraz
-        difference()
-        {
-            translate([0, 0, LO_vyska_bez_krytu])
-                cylinder(h = 2*S01_sila_materialu,
-                         r1 = (LO_spodni_prumer + 2*S01_sila_materialu) / 2,
-                         r2 = LO_spodni_prumer/2);
-            translate([0, 0, LO_vyska_bez_krytu])
-                cylinder(h = 2*S01_sila_materialu,
-                         r1 = LO_spodni_prumer/2,
-                         r2 = (LO_spodni_prumer - 2*S01_sila_materialu) / 2);
-        }
-        */
     }
-}
-
-//sloupek na senzor
-module SLOUPEK()
-{
-    translate([0, 0, S01_sila_materialu])
-        difference ()
-        {
-            cylinder (h = (R01_vyska_prekryti_statoru + 2*lozisko_vyska
-                           + 2*S01_sila_materialu + 2*S01_sila_materialu
-                           + vyska_hlavy_sroubu + magnet_vyska + vyska_matky),
-                      r = sirka_matky/2 + S01_sila_materialu, $fn = 20);
-            translate([0, 0, R01_vyska_prekryti_statoru + 2*lozisko_vyska
-                       + 2*S01_sila_materialu + 2*S01_sila_materialu + vyska_hlavy_sroubu
-                       + magnet_vyska])
-                cylinder (h = vyska_matky + 0.01, r = (sirka_matky + 0.2)/2, $fn = 6);
-            translate([0, 0, -0.01])
-                cylinder (h = (R01_vyska_prekryti_statoru + 2*lozisko_vyska
-                               + 2*S01_sila_materialu + 2*S01_sila_materialu
-                               + vyska_hlavy_sroubu + magnet_vyska + vyska_matky + 0.01),
-                          r = (prumer_sroubu + 0.2) / 2, $fn = 40);
-            translate([0, 0, -0.01])
-                cylinder (h = vyska_hlavy_sroubu - S01_sila_materialu,
-                          r = prumer_hlavy_sroubu/2, $fn = 40);
-            translate([0, 0, vyska_hlavy_sroubu - S01_sila_materialu - 0.02])
-                cylinder(h = 2 + 0.02,
-                         r1 = prumer_hlavy_sroubu/2,
-                         r2 = (prumer_sroubu + 0.2) / 2);
-        }
 }
 
 difference()

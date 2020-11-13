@@ -1,5 +1,0 @@
-../amf/WINDGAUGE_R05.amf: \
-	src/WINDGAUGE_R05.scad \
-	src/lib/copyFunctions.scad \
-	src/assets/graphics/MLAB_logo.scad \
-	configuration.scad \

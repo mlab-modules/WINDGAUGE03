@@ -35,15 +35,15 @@ S01_tolerance_zavit=1.5;
 
 //Rozměry ložiska se závity
 //LO_spodni_prumer=22;
-LO_spodni_prumer=17.2; //bez krytu
-LO_vyska_bez_krytu=14;
-LO_doraz_prumer=44.3;
+LO_spodni_prumer=16.7; //bez krytu
+slip_ring_mount_height=1.5;
+slip_ring_mount_diameter=16.7;
 LO_horni_prumer=7.7;
-LO_vyska_spodni_doraz=5;
-LO_vyska_horni_doraz=9;
-LO_vyska_dorazu=0;
-
-
+//LO_vyska_spodni_doraz=5;
+//LO_vyska_horni_doraz=9;
+//LO_vyska_dorazu=0;
+slip_ring_body_height = 16;
+slip_ring_body_diameter = 19.8;
 
 
 
