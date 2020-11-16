@@ -33,14 +33,14 @@ else:
     cal = 0
 # select coniguration from config array bellow
 #cfg_number = 1 # HIDAPI interface
-cfg_number = 0 # SMBbus interface (needs kernel support)
+cfg_number = 1 # SMBbus interface (needs kernel support)
 
 
 cfglist=[
     config.Config(
         i2c = {
             "port": port,
-            "device": "hid",
+            "device": "smbus",
         },
         bus = [
             {
@@ -124,7 +124,7 @@ except OSError:
 else:
     print ("Successfully created the directory %s\n" % path)
 
-log_name = ("SDP33_tp_log_%s.csv" % datetime.datetime.utcfromtimestamp(time.time()).isoformat())
+log_name = ("WINDGAUGE03A_log_%s.csv" % datetime.datetime.utcfromtimestamp(time.time()).isoformat())
 filepath = path + log_name
 log_file = open(filepath, "w")
 print ("Using logfile %s\n" % filepath)
@@ -164,6 +164,7 @@ while True:
                 gps_ts = gps_parsed.timestamp
 
         if error == True:
+            windgauge.route()
             windgauge.reset()
             windgauge.initialize()
             error = False
