@@ -185,7 +185,7 @@ while True:
         hdg_ma, hdg_vect, prev_hdg_ma = heading_ma(new_hdg, hdg_vect, ma_len, prev_hdg_ma)
 
         dp, spd_from_dp = windgauge.get_dp_spd()
-        temp = windgauge.get_temp()
+        temp = windgauge.get_t()
 
         ts = datetime.datetime.utcfromtimestamp(time.time()).isoformat()
 
