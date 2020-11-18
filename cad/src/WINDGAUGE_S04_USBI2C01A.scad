@@ -5,7 +5,7 @@ draft = true;
 $fn = draft ? 20 : 100; // model faces resolution
 PI=3.141592;
 
-module DRZAK()
+module DRZAK_VELKY()
 {
     difference()
     {
@@ -21,6 +21,23 @@ module DRZAK()
     }
 }
 
+module DRZAK_MALY()
+{
+    difference()
+    {
+        translate([-S04_sila_materialu/2, 0, 4.0])
+            cube([10.16 + 1*S04_sila_materialu, 3 + 2*S04_sila_materialu, 8], true);
+
+        translate([0, 0, 5.08])
+            cube([10.16, 3, 10 + 0.01], true);
+
+        translate([0, 5, 5.08])
+            rotate ([90, 0, 0])
+                cylinder(h = 30, r=(3.3 / 2));
+    }
+}
+
+
 //Držák pro modul USBI2C01A
 module WINDGAUGE01A_S04_USBI2C01A(draft = true)
 {
@@ -34,11 +51,11 @@ module WINDGAUGE01A_S04_USBI2C01A(draft = true)
                      
             //drzaky PCB 
             translate([-USBI2C01A_sirka_mod_otvory*10.16/2 + 5.08, 0, S01_sila_drzaku_RJ11])
-                DRZAK();
+                DRZAK_MALY();
 
             translate([USBI2C01A_sirka_mod_otvory*10.16/2-5.08, 0, S01_sila_drzaku_RJ11])
                 rotate ([0, 0, 180])
-                    DRZAK();
+                    DRZAK_VELKY();
              
                 }   
         //otvor pro konektor
