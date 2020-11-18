@@ -90,7 +90,7 @@ D02_magnet_diameter = 16.1 + global_clearance; // HS-13 M5 magnet diameter
 D02_flat_magnet_diameter = 18.1 + global_clearance; // HS-13 M5 magnet diameter
 D02_wall_thickness = 5; // body wall thickness
 D02_connector_spacing = 40; // main body cut-through for connectors
-D02_base_diameter = 140; // diameter of holder base
+D02_base_diameter = 80; // diameter of holder base
 D02_base_height = max(M6_nut_height + 1.5,
                       D02_magnet_base_height + M5_nut_height/2 + 1.5); // height of holder base
 D02_body_height = 60 - D02_base_height; // height of body between base and top ring
