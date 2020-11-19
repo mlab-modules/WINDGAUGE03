@@ -129,7 +129,7 @@ filepath = path + log_name
 log_file = open(filepath, "w")
 print ("Using logfile %s\n" % filepath)
 
-log_file.write("log_index;system_timestamp;diff_press[Pa];mag_hdg[deg];spd_from_dp[m/s];temp[degC];gps_timestamp;gps_hdg[deg];gps_sogk[m/s]\n")
+log_file.write("log_index;system_timestamp;diff_press[Pa];mag_x;mag_y;mag_z;mag_hdg[deg];spd_from_dp[m/s];temp[degC];gps_timestamp;gps_hdg[deg];gps_sogk[m/s]\n")
 
 #### Measurement ###################################################
 log_index = 0
@@ -182,6 +182,7 @@ while True:
 
         mag_hdg_comp = windgauge.get_mag_hdg()
         new_hdg = mag_hdg_comp
+        mag_x, mag_y, mag_z = windgauge.get_mag_raw()
         hdg_ma, hdg_vect, prev_hdg_ma = heading_ma(new_hdg, hdg_vect, ma_len, prev_hdg_ma)
 
         dp, spd_from_dp = windgauge.get_dp_spd()
@@ -197,17 +198,17 @@ while True:
                 gps_sogk = ""
             if(gps_tt is None):
                 gps_tt = ""
-            msg = ("%d;%s;%0.2f;%0.2f;%0.2f;%0.3f;%s;%s;%s\n"% (log_index, ts, dp, hdg_ma, spd_from_dp, temp, gps_ts, gps_tt, gps_sogk))
-            # print(msg)
+            msg = ("%d;%s;%0.2f;%0.2f;%0.2f;%0.2f;%0.2f;%0.2f;%0.3f;%s;%s;%s\n"% (log_index, ts, dp, mag_x, mag_y, mag_z, hdg_ma, spd_from_dp, temp, gps_ts, gps_tt, gps_sogk))
+            #print(msg)
             log_file.write(msg)
             sys.stdout.write("%s; %s; Dp: %+4.2f [Pa]; T: %2.3f [degC];" % (str(log_index).zfill(4), ts, dp, temp))
             sys.stdout.write(" GPS_TS: %s; GPS_HDG: %s [deg]; GPS_SOG: %s [km/h]\n" % (gps_ts, gps_tt, gps_sogk))
-            sys.stdout.write("      MAG_HDG: %+4.2f; SPD_W_DP: %+4.2f [km/h]\n" % (hdg_ma, spd_from_dp))
+            sys.stdout.write(" MAG_X: %+4.2f;MAG_Y: %+4.2f;MAG_Z: %+4.2f;MAG_HDG: %+4.2f; SPD_W_DP: %+4.2f [km/h]\n" % (mag_x, mag_y, mag_z, hdg_ma, spd_from_dp))
             sys.stdout.flush()
         else:
-            msg = ("%d;%s;%0.2f;%0.2f;%0.2f;%0.3f\n"% (log_index, ts, dp, hdg_ma, spd_from_dp, temp))
+            msg = ("%d;%s;%0.2f;%0.2f;%0.2f;%0.2f;%0.2f;%0.2f;%0.3f\n"% (log_index, ts, dp, mag_x, mag_y, mag_z, hdg_ma, spd_from_dp, temp))
             sys.stdout.write("%s; %s; Dp: %+4.2f [Pa]; T: %2.3f [degC]; " % (str(log_index).zfill(4), ts, dp, temp))
-            sys.stdout.write("MAG_HDG: %+4.2f; SPD_W_DP: %+4.2f [km/h]\n" % (hdg_ma, spd_from_dp))
+            sys.stdout.write("MAG_X: %+4.2f;MAG_Y: %+4.2f;MAG_Z: %+4.2f;MAG_HDG: %+4.2f; SPD_W_DP: %+4.2f [km/h]\n" % (mag_x, mag_y, mag_z, hdg_ma, spd_from_dp))
             sys.stdout.flush()
             log_file.write(msg)
 
