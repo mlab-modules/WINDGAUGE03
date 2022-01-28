@@ -23,9 +23,11 @@ High-endurance venturi anemometer with minimum moving parts.
 
 ### Advantages
   * Minimised number of moving parts results in increased durability
-  * Venturi effect allows accurate measurement in wide range of speeds. 
+  * Venturi effect allows accurate measurement in wide range of speeds is especially sensitive for common low airspeeds  
 
 ### Function principle
+
+The measuring tube consist an orifice, which increases airflow in the tube. The different speeds generates differentiall preassure, which is measured by electronic differential pressure sensor.  The same principle was used in beginnig of [aircraft airspeed measurement](https://ntrs.nasa.gov/citations/19930091190). It is advantageous due to better sensitivity at lows speeds compared to [pitot-static](https://en.wikipedia.org/wiki/Pitot_tube) tube. 
 
 The anemometer consists the IMU sensor ICM-20948 which contains magnetometer, gyroscopes and accelerometers. The IMU allows sophisticated data aquisition for failure detection and gust wind analysis. 
 
