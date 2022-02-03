@@ -48,6 +48,16 @@ The anemometer consists the IMU sensor ICM-20948 which contains magnetometer, gy
 
 The anemometer uses [pymlab](https://github.com/MLAB-project/pymlab) software toolkit to interface with a station computer. The toolkit also contains an [example](https://github.com/MLAB-project/pymlab/blob/master/examples/windgauge03a_example.py) which allows basic calibration and data recording of anemometer data. 
 
+
+#### Usage 
+
+##### Calibration 
+
+Anemometer should be calibrated before the first use. That ensures, calibration of magnetometer parameters. To correctly determine the wind direction. 
+
+  python3 serial_logger.py 68  15
+
+
 <!--- EDescription --->
 <!--- Content --->
 <!--- EContent --->
