@@ -14,7 +14,7 @@
 <!--- ELongName ---> 
 
 <!--- Lead --->
-High-endurance venturi anemometer with minimum moving parts. 
+High-endurance venturi anemometer with minimum moving parts. Automatic estimation of direction to magnetic nort. 
 <!--- ELead ---> 
 
 <!--- Description --->
@@ -35,7 +35,7 @@ The anemometer consists the IMU sensor ICM-20948 which contains magnetometer, gy
 
 ### Main parameters
   
-  * Absolute azimuth accuracy 1°
+  * Absolute azimuth accuracy 1° (to magnetic north)
   * Wind speed measurement range 0-120 km/h
   * Maximum mechanically safe wind speed 150 km/h
   * Communication interfaces: 
@@ -53,9 +53,9 @@ The anemometer uses [pymlab](https://github.com/MLAB-project/pymlab) software to
 
 ##### Calibration 
 
-Anemometer should be calibrated before the first use. That ensures, calibration of magnetometer parameters. To correctly determine the wind direction. 
+Anemometer should be calibrated before the first use. That ensures, calibration of magnetometer parameters. To correctly determine the wind direction by internal magnetometer. 
 
-  python3 serial_logger.py 68  15
+    python3 serial_logger.py 68  15
 
 
 <!--- EDescription --->
