@@ -4,3 +4,6 @@
 [submodule "cad/src/assets"]
 	path = cad/src/assets
 	url = https://github.com/MLAB-project/documents.git
+[submodule "doc/assets"]
+	path = doc/assets
+	url = git@github.com:MLAB-project/documents.git
