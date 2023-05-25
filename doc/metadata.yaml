@@ -1,0 +1,38 @@
+description: Differential pressure wind speed sensor
+github_branch: WINDGAUGE03A
+github_branches:
+- WINDGAUGE03A
+github_repo: WINDGAUGE03
+github_url: https://github.com/mlab-modules/WINDGAUGE03
+homepage: false
+image: doc/img/WINDGAUGE03A.jpg
+images:
+- doc/img/WINDGAUGE03A.jpg
+- doc/img/WINDGAUGE03A_sensor.jpg
+- cad/src/lib/stdlib/doc/img/bolts.png
+- doc/img/schematics.png
+- doc/img/balancing.png
+- doc/img/WINDGAUGE_S04_USBI2C01A.png
+- doc/img/WINDGAUGE_S03.png
+- doc/img/WINDGAUGE_R04.png
+- doc/img/BOLT_M3x12.png
+- doc/img/WINDGAUGE_R05.png
+- doc/img/WINDGAUGE_S02.png
+- doc/img/WINDGAUGE_D02.png
+- doc/img/WINDGAUGE_S04.png
+- doc/img/WINDGAUGE_R06.png
+- doc/img/WINDGAUGE_R03.png
+- doc/img/WINDGAUGE_S01.png
+- doc/img/WINDGAUGE03A_QRcode.png
+- doc/img/rotorpart_balancing.png
+issues: 6
+mark: 50
+tags:
+- anemometer
+- venturi-effect
+- pitot-tube
+- windspeed
+- airspeed-velocity
+- airspeed
+- ias
+title: WINDGAUGE03
