@@ -27,6 +27,7 @@ images:
 - doc/img/WINDGAUGE_S01.png
 issues: 6
 mark: 50
+status: 0
 tags:
 - anemometer
 - venturi-effect
