@@ -7,24 +7,24 @@ github_url: https://github.com/mlab-modules/WINDGAUGE03
 homepage: false
 image_title: doc/img/WINDGAUGE03A.jpg
 images:
-- doc/img/WINDGAUGE03A_sensor.jpg
 - doc/img/WINDGAUGE03A.jpg
-- doc/img/schematics.png
-- doc/img/WINDGAUGE_S01.png
-- doc/img/rotorpart_balancing.png
-- doc/img/WINDGAUGE_R05.png
-- doc/img/WINDGAUGE03A_QRcode.png
-- doc/img/WINDGAUGE_S02.png
-- doc/img/WINDGAUGE_R03.png
-- doc/img/WINDGAUGE_S03.png
-- doc/img/WINDGAUGE_R06.png
+- doc/img/WINDGAUGE03A_sensor.jpg
+- cad/src/lib/stdlib/doc/img/bolts.png
+- doc/img/WINDGAUGE_S04_USBI2C01A.png
 - doc/img/WINDGAUGE_S04.png
 - doc/img/balancing.png
-- doc/img/WINDGAUGE_D02.png
-- doc/img/WINDGAUGE_R04.png
 - doc/img/BOLT_M3x12.png
-- doc/img/WINDGAUGE_S04_USBI2C01A.png
-- cad/src/lib/stdlib/doc/img/bolts.png
+- doc/img/WINDGAUGE_R03.png
+- doc/img/schematics.png
+- doc/img/WINDGAUGE_S03.png
+- doc/img/WINDGAUGE_D02.png
+- doc/img/rotorpart_balancing.png
+- doc/img/WINDGAUGE03A_QRcode.png
+- doc/img/WINDGAUGE_R04.png
+- doc/img/WINDGAUGE_R06.png
+- doc/img/WINDGAUGE_R05.png
+- doc/img/WINDGAUGE_S02.png
+- doc/img/WINDGAUGE_S01.png
 issues: 6
 mark: 50
 tags:
@@ -40,4 +40,4 @@ tags:
 - measuring
 - sensor
 title: WINDGAUGE03
-updated: '2023-09-11T00:30:35.947797+00:00'
+updated: '2023-09-16T14:39:37.988815+00:00'
