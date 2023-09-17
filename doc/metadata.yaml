@@ -2,6 +2,7 @@ description: Differential pressure wind speed sensor
 github_branch: WINDGAUGE03A
 github_branches:
 - WINDGAUGE03A
+github_description: Differential pressure wind speed sensor
 github_repo: WINDGAUGE03
 github_url: https://github.com/mlab-modules/WINDGAUGE03
 homepage: false
@@ -41,4 +42,4 @@ tags:
 - measuring
 - sensor
 title: WINDGAUGE03
-updated: '2023-09-16T22:04:11.574629+00:00'
+updated: '2023-09-17T11:43:14.701235+00:00'
